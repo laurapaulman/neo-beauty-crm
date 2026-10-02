@@ -1,0 +1,1 @@
+# neo-beauty-crm
