@@ -208,9 +208,120 @@
     .employee-profile-row { display: flex; justify-content: space-between; gap: 8px; padding: 7px 3px; border-bottom: 1px dotted var(--line); font-size: 10px; }
     .employee-profile-row span:first-child { color: var(--muted); }
     .employee-profile-row strong { text-align: right; font-weight: 600; }
+    .employee-overview-top { display: grid; grid-template-columns: minmax(280px, 1fr) minmax(350px, 1.55fr); gap: 12px; margin-bottom: 14px; }
+    .employee-kpis { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .employee-kpi { min-height: 124px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 12px 8px; border-radius: 6px; color: white; text-align: center; }
+    .employee-kpi .employee-kpi-icon { width: 34px; height: 34px; display: grid; place-items: center; margin-top: -25px; border: 2px solid rgba(255,255,255,.55); border-radius: 50%; background: rgba(255,255,255,.15); font-size: 15px; }
+    .employee-kpi span { font-size: 8px; font-weight: 700; line-height: 1.35; }
+    .employee-kpi strong { font: 700 14px Manrope, sans-serif; }
+    .employee-kpi.revenue { background: #718e5c; }
+    .employee-kpi.visits { background: #5e9291; }
+    .employee-kpi.tenure { background: #b96e5f; }
+    .employee-activity-chart { min-width: 0; padding: 10px 13px; border: 1px solid var(--line); border-radius: 6px; background: var(--white); }
+    .employee-activity-chart canvas { display: block; width: 100%; height: 155px; }
+    .employee-chart-legend { display: flex; justify-content: flex-end; gap: 12px; margin-top: 4px; }
+    .employee-chart-legend label { display: flex; align-items: center; gap: 5px; color: var(--muted); font-size: 9px; }
+    .employee-chart-legend input { accent-color: var(--pine); }
+    .employee-contact-list, .employee-document-list { display: grid; gap: 5px; margin-bottom: 8px; }
+    .employee-contact-item, .employee-document-item { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 7px 3px; border-bottom: 1px dotted var(--line); font-size: 10px; }
+    .employee-document-item small { display: block; margin-top: 3px; color: var(--muted); }
     .employee-profile-edit { display: grid; gap: 9px; max-width: 560px; }
     .employee-profile-edit label { display: grid; grid-template-columns: 1fr minmax(170px, 260px); align-items: center; gap: 12px; color: #626a63; font-size: 10px; }
     .employee-profile-edit input, .employee-profile-edit select, .employee-profile-edit textarea { width: 100%; padding: 8px; border: 1px solid var(--line); border-radius: 5px; background: white; font-size: 10px; }
+    .salary-config-panel { margin-bottom: 12px; }
+    .salary-summary-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-bottom: 12px; }
+    .salary-fixed-controls { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; padding: 10px 0 13px; }
+    .salary-fixed-controls label { display: grid; gap: 5px; color: var(--muted); font-size: 10px; }
+    .salary-fixed-controls input, .salary-fixed-controls select, .salary-rules-table select, .salary-rate-input input { min-width: 0; padding: 7px 8px; border: 1px solid var(--line); border-radius: 5px; background: white; color: var(--ink); font-size: 10px; }
+    .salary-fixed-controls input { width: 155px; }
+    .salary-work-count { padding: 8px 0; color: var(--muted); font-size: 10px; }
+    .salary-rules-wrap { border-top: 1px solid var(--line); }
+    .salary-rules-table { min-width: 720px; }
+    .salary-rules-table td { vertical-align: middle; }
+    .salary-rules-table td:first-child { min-width: 170px; }
+    .salary-rules-table td:first-child small { display: block; margin-top: 4px; }
+    .salary-rules-table select { width: 100%; max-width: 180px; }
+    .salary-rate-input { display: flex; align-items: center; gap: 6px; white-space: nowrap; }
+    .salary-rate-input input { width: 86px; }
+    .salary-rate-input span { color: var(--muted); font-size: 9px; }
+    .salary-rule-result { color: var(--pine); font-weight: 700; white-space: nowrap; }
+    .salary-entry-form { max-width: 850px; grid-template-columns: repeat(3, minmax(0, 1fr)) auto; align-items: end; margin-bottom: 14px; }
+    .salary-entry-form label { display: grid; grid-template-columns: 1fr; gap: 5px; }
+    .salary-ledger-wrap { border-top: 1px solid var(--line); }
+    .salary-template-controls { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 12px; }
+    .salary-template-controls label { display: grid; gap: 6px; color: var(--muted); font-size: 10px; }
+    .salary-template-controls input, .salary-template-controls select { width: 100%; min-height: 36px; padding: 8px; border: 1px solid var(--line); border-radius: 5px; background: white; font-size: 11px; }
+    .salary-overrides { margin-bottom: 12px; }
+    .salary-overrides h2 { margin: 0 0 10px; color: var(--pine); font: 600 14px Manrope, sans-serif; }
+    .salary-override-form { display: grid; grid-template-columns: repeat(5, minmax(110px, 1fr)) auto; align-items: end; gap: 8px; }
+    .salary-override-form label { display: grid; gap: 5px; color: var(--muted); font-size: 9px; }
+    .salary-override-form input, .salary-override-form select { width: 100%; min-width: 0; padding: 7px; border: 1px solid var(--line); border-radius: 5px; background: white; font-size: 10px; }
+    .salary-override-list { display: grid; gap: 5px; margin-top: 10px; }
+    .salary-override-item { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px; border-bottom: 1px dotted var(--line); font-size: 10px; }
+    .salary-category-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; padding: 24px 0 15px; margin-bottom: 24px; border-bottom: 1px solid var(--line); }
+    .salary-category-tile { position: relative; display: flex; min-width: 0; min-height: 154px; flex-direction: column; align-items: center; justify-content: center; gap: 11px; padding: 35px 8px 14px; border: 0; border-radius: 0; color: white; text-align: center; cursor: pointer; transition: filter .15s, transform .15s; }
+    .salary-category-tile:hover { filter: brightness(1.06); transform: translateY(-2px); }
+    .salary-category-tile.setup { background: #cf5b4d; }
+    .salary-category-tile.fixed { background: #334e60; }
+    .salary-category-tile.services { background: #d79a24; }
+    .salary-category-tile.sales { background: #8aaf3e; }
+    .salary-category-tile.acquisition { background: #3199ad; }
+    .salary-category-tile.retention { background: #678a63; }
+    .salary-category-icon { position: absolute; top: -25px; left: 50%; display: grid; width: 66px; height: 66px; place-items: center; transform: translateX(-50%); border: 4px solid rgba(255,255,255,.42); border-radius: 50%; background: inherit; box-shadow: 0 0 0 2px rgba(27,42,33,.1); font: 600 24px Manrope, sans-serif; }
+    .salary-category-title { max-width: 100%; font-size: 12px; font-weight: 600; line-height: 1.35; }
+    .salary-category-tile strong { max-width: 100%; font: 700 14px Manrope, sans-serif; overflow-wrap: anywhere; }
+    .salary-current-section { margin-bottom: 20px; }
+    .salary-current-heading { display: flex; align-items: center; gap: 12px; padding: 7px 0 5px; border-bottom: 1px solid var(--pine); }
+    .salary-current-heading h2 { flex: 1; margin: 0; color: var(--pine); font: 500 23px Manrope, sans-serif; }
+    .salary-current-heading label { display: flex; align-items: center; gap: 7px; color: var(--muted); font-size: 10px; }
+    .salary-current-heading input { padding: 6px 8px; border: 1px solid var(--line); border-radius: 4px; background: white; font-size: 11px; }
+    .salary-current-summary { display: flex; justify-content: space-between; gap: 18px; padding: 14px 0; }
+    .salary-current-stats { width: min(100%, 470px); }
+    .salary-current-stats > div { display: grid; grid-template-columns: 1fr auto; gap: 14px; padding: 7px 10px; border-bottom: 1px dotted var(--line); font-size: 11px; }
+    .salary-current-stats span { color: #647b91; }
+    .salary-current-stats strong { color: #3f4a54; font-weight: 600; }
+    .salary-current-stats > div:last-child strong { color: var(--ink); font-size: 12px; }
+    .salary-current-note { display: flex; min-width: 180px; flex-direction: column; align-items: flex-end; gap: 6px; padding: 12px 0; color: var(--muted); font-size: 10px; }
+    .salary-current-note strong { color: var(--pine); font-size: 16px; }
+    .salary-current-note small { text-align: right; }
+    .salary-current-table { min-width: 1120px; }
+    .salary-current-table thead { background: #ededeb; }
+    .salary-current-table th { padding: 9px 8px; color: #394039; font-size: 10px; white-space: nowrap; }
+    .salary-current-table td { padding: 9px 8px; border-bottom: 1px solid #dededb; font-size: 10px; }
+    .salary-current-table tbody tr:nth-child(even) { background: #fafaf8; }
+    .salary-positive { color: #78a62f; font-weight: 700; white-space: nowrap; }
+    .salary-negative { color: #d84d41; font-weight: 700; white-space: nowrap; }
+    .salary-advanced-settings { border-top: 1px solid var(--line); }
+    .salary-advanced-settings > summary { padding: 13px 0; color: var(--pine); font: 600 15px Manrope, sans-serif; cursor: pointer; }
+    .salary-advanced-content { display: grid; gap: 12px; padding-bottom: 14px; }
+    .salary-wizard-backdrop { z-index: 42; padding: 20px; }
+    .salary-wizard-modal { width: min(760px, 100%); max-width: 760px; max-height: calc(100vh - 40px); padding: 0; overflow: auto; }
+    .salary-wizard-steps { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); padding: 17px 22px 12px; border-bottom: 1px solid var(--line); }
+    .salary-wizard-steps button { position: relative; display: flex; min-width: 0; flex-direction: column; align-items: center; gap: 6px; border: 0; background: transparent; color: #9aa0a5; cursor: pointer; }
+    .salary-wizard-steps button:not(:last-child)::after { position: absolute; top: 17px; left: calc(50% + 18px); width: calc(100% - 28px); height: 3px; background: #d9dcdd; content: ''; }
+    .salary-wizard-steps button.complete:not(:last-child)::after { background: #78aeb1; }
+    .salary-wizard-steps button > span { z-index: 1; display: grid; width: 36px; height: 36px; place-items: center; border: 4px solid #d8dcdf; border-radius: 50%; background: white; color: #647482; font-size: 12px; }
+    .salary-wizard-steps button.active > span { border-color: #cf5b4d; color: #334e60; }
+    .salary-wizard-steps button.complete > span { border-color: #6f9c98; color: #76a62f; }
+    .salary-wizard-steps small { max-width: 92px; color: inherit; font-size: 9px; line-height: 1.3; text-align: center; }
+    .salary-wizard-steps button.active small, .salary-wizard-steps button.complete small { color: var(--ink); }
+    .salary-wizard-content { min-height: 250px; padding: 20px 26px 24px; }
+    .salary-wizard-content > h2 { padding-bottom: 8px; margin: 0 0 15px; border-bottom: 1px solid var(--pine); color: var(--pine); font: 500 18px Manrope, sans-serif; }
+    .salary-wizard-template-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 12px; margin-bottom: 16px; }
+    .salary-wizard-template-row label, .salary-wizard-fields label, .salary-wizard-rule label { display: grid; gap: 6px; color: #555f59; font-size: 10px; }
+    .salary-wizard-template-row input, .salary-wizard-template-row select, .salary-wizard-fields input, .salary-wizard-fields select, .salary-wizard-rule input, .salary-wizard-rule select { width: 100%; min-width: 0; min-height: 35px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 4px; background: white; font-size: 11px; }
+    .salary-wizard-fields { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+    .salary-wizard-fields p { grid-column: 1 / -1; color: var(--muted); font-size: 10px; }
+    .salary-wizard-rule { display: grid; grid-template-columns: minmax(160px, 1.2fr) minmax(160px, 1fr) minmax(110px, .7fr) minmax(160px, 1fr); align-items: end; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .salary-wizard-rule h3 { margin: 0; color: var(--pine); font: 600 13px Manrope, sans-serif; }
+    .salary-wizard-rule > small { grid-column: 2 / -1; color: var(--muted); font-size: 10px; }
+    .salary-wizard-rule-grid { display: grid; gap: 7px; }
+    .salary-wizard-rule-grid .salary-wizard-rule { grid-template-columns: minmax(130px, 1fr) minmax(130px, 1fr) minmax(95px, .6fr) minmax(130px, 1fr); }
+    .salary-wizard-rate { display: flex; align-items: center; gap: 7px; }
+    .salary-wizard-rate span { color: var(--muted); }
+    .salary-wizard-hint { color: var(--muted); font-size: 10px; }
+    .salary-wizard-footer { position: sticky; bottom: 0; display: flex; justify-content: space-between; gap: 12px; padding: 11px 18px; border-top: 1px solid var(--line); background: #f0f3f7; }
+    .salary-wizard-footer > div { display: flex; gap: 7px; }
     .employee-break { position: absolute; z-index: 2; left: 4px; right: 4px; display: grid; place-items: center; border-left: 3px solid var(--gold); border-radius: 3px; background: #f2eadc; color: #6c5734; font-size: 8px; pointer-events: none; }
     .calendar-head:first-child { left: 0; z-index: 3; }
     .calendar-head strong { font-size: 11px; font-weight: 600; }
@@ -418,6 +529,7 @@
       .topbar { padding: 0 23px; }
       .team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .workspace-layout { grid-template-columns: minmax(0, 1fr) 260px; gap: 10px; }
+      .salary-category-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); row-gap: 36px; }
     }
     @media (max-width: 980px) {
       .workspace-layout { grid-template-columns: 1fr; }
@@ -444,7 +556,7 @@
       .content { padding: 22px 15px 28px; }
       .page-heading { align-items: flex-start; flex-direction: column; margin-bottom: 16px; }
       h1 { font-size: 21px; }
-      .heading-actions { width: 100%; }
+      .heading-actions { width: 100%; flex-wrap: wrap; }
       .heading-actions .btn-primary { margin-left: auto; }
       .metric-grid { grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
       .metric { padding: 12px; }
@@ -470,6 +582,36 @@
       .setting-info { grid-column: auto; }
       .setting-row { grid-template-columns: minmax(0, 1fr) 120px; gap: 8px; }
       .employee-profile-grid { grid-template-columns: 1fr; }
+      .employee-overview-top { grid-template-columns: 1fr; }
+      .employee-kpi { min-height: 105px; }
+      .salary-summary-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .salary-fixed-controls { align-items: stretch; }
+      .salary-fixed-controls label { flex: 1 1 140px; }
+      .salary-entry-form { grid-template-columns: 1fr 1fr; }
+      .salary-entry-form label:nth-child(3) { grid-column: 1 / -1; }
+      .salary-override-form { grid-template-columns: 1fr 1fr; }
+      .salary-override-form label:nth-child(2) { grid-column: 1 / -1; }
+      .salary-category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 34px 10px; padding-top: 24px; }
+      .salary-category-tile { min-height: 132px; }
+      .salary-category-title { font-size: 10px; }
+      .salary-category-tile strong { font-size: 11px; }
+      .salary-current-heading { flex-wrap: wrap; }
+      .salary-current-heading h2 { flex: 1 0 100%; font-size: 20px; }
+      .salary-current-heading label { margin-right: auto; }
+      .salary-current-summary { flex-direction: column; gap: 0; }
+      .salary-current-stats { width: 100%; }
+      .salary-current-note { align-items: flex-start; }
+      .salary-current-note small { text-align: left; }
+      .salary-wizard-backdrop { padding: 8px; }
+      .salary-wizard-modal { max-height: calc(100vh - 76px); }
+      .salary-wizard-steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px 2px; padding: 12px 8px; }
+      .salary-wizard-steps button:not(:last-child)::after { display: none; }
+      .salary-wizard-content { min-height: 220px; padding: 16px 14px; }
+      .salary-wizard-rule, .salary-wizard-rule-grid .salary-wizard-rule { grid-template-columns: 1fr 1fr; gap: 8px; }
+      .salary-wizard-rule h3, .salary-wizard-rule > small { grid-column: 1 / -1; }
+      .salary-wizard-footer { padding: 9px; }
+      .salary-wizard-footer > div { flex-wrap: wrap; justify-content: flex-end; }
+      .salary-wizard-footer .btn { padding: 8px 9px; font-size: 10px; }
       .search-box { flex: 1; }
       .search-box input { width: 100%; }
       .online-card { align-items: flex-start; }
@@ -550,6 +692,8 @@
   <div class="modal-backdrop" id="client-modal" role="dialog" aria-modal="true" aria-labelledby="client-modal-title"><form class="modal" id="client-form"><div class="modal-head"><div><h2 id="client-modal-title">Новый клиент</h2><p>Добавьте контакт в базу студии</p></div><button class="close-modal" type="button" data-close-client aria-label="Закрыть">×</button></div><div class="form-grid"><div class="field full"><label for="new-client-name">Имя клиента</label><input id="new-client-name" name="name" required></div><div class="field"><label for="new-client-phone">Телефон</label><input id="new-client-phone" name="phone" type="tel" placeholder="+372"></div><div class="field"><label for="new-client-birthday">День рождения</label><input id="new-client-birthday" name="birthday" type="date"></div><div class="field full"><label for="new-client-email">Email</label><input id="new-client-email" name="email" type="email"></div><div class="field full"><label for="new-client-notes">Заметка</label><textarea id="new-client-notes" name="notes" rows="3"></textarea></div></div><div class="modal-actions"><button class="btn" type="button" data-close-client>Отмена</button><button class="btn btn-primary" type="submit">Сохранить клиента</button></div></form></div>
   <div class="modal-backdrop" id="staff-modal" role="dialog" aria-modal="true" aria-labelledby="staff-modal-title"><form class="modal" id="staff-form"><div class="modal-head"><div><h2 id="staff-modal-title">Новый сотрудник</h2><p>Добавьте мастера или администратора</p></div><button class="close-modal" type="button" data-close-staff aria-label="Закрыть">×</button></div><div class="form-grid"><div class="field full"><label for="new-staff-name">Имя</label><input id="new-staff-name" name="name" required></div><div class="field"><label for="new-staff-role">Должность</label><select id="new-staff-role" name="role"><option>Мастер</option><option>Администратор</option><option>Косметолог</option><option>Массажист</option></select></div><div class="field"><label for="new-staff-phone">Телефон</label><input id="new-staff-phone" name="phone" type="tel" placeholder="+372"></div><div class="field"><label for="new-staff-color">Цвет в расписании</label><input id="new-staff-color" name="color" type="color" value="#8aaab0"></div></div><div class="modal-actions"><button class="btn" type="button" data-close-staff>Отмена</button><button class="btn btn-primary" type="submit">Добавить сотрудника</button></div></form></div>
   <div class="modal-backdrop" id="supplier-modal" role="dialog" aria-modal="true" aria-labelledby="supplier-modal-title"><form class="modal" id="supplier-form"><div class="modal-head"><div><h2 id="supplier-modal-title">Новый поставщик</h2><p>Контакты будут храниться в этом браузере</p></div><button class="close-modal" type="button" data-close-supplier aria-label="Закрыть">×</button></div><div class="form-grid"><div class="field full"><label for="new-supplier-name">Название поставщика</label><input id="new-supplier-name" name="name" required></div><div class="field"><label for="new-supplier-code">Регистрационный код</label><input id="new-supplier-code" name="code"></div><div class="field"><label for="new-supplier-phone">Телефон</label><input id="new-supplier-phone" name="phone" type="tel"></div><div class="field full"><label for="new-supplier-email">Email</label><input id="new-supplier-email" name="email" type="email"></div><div class="field full"><label for="new-supplier-note">Заметка</label><textarea id="new-supplier-note" name="note" rows="2"></textarea></div></div><div class="modal-actions"><button class="btn" type="button" data-close-supplier>Отмена</button><button class="btn btn-primary" type="submit">Сохранить поставщика</button></div></form></div>
+  <div class="modal-backdrop" id="employee-contact-modal" role="dialog" aria-modal="true" aria-labelledby="employee-contact-title"><form class="modal" id="employee-contact-form"><div class="modal-head"><div><h2 id="employee-contact-title">Контакт сотрудника</h2></div><button class="close-modal" type="button" data-close-employee-contact aria-label="Закрыть">×</button></div><div class="form-grid"><div class="field"><label for="employee-contact-type">Тип контакта</label><select id="employee-contact-type"><option>Мобильный телефон</option><option>Эл. почта</option><option>Другой</option></select></div><div class="field"><label for="employee-contact-value">Контакт</label><input id="employee-contact-value" required></div><div class="field full"><label class="reminder-option"><input id="employee-contact-primary" type="checkbox"> Основной контакт</label></div></div><div class="modal-actions"><button class="btn" type="button" data-close-employee-contact>Отмена</button><button class="btn btn-primary" type="submit">Сохранить контакт</button></div></form></div>
+  <div class="modal-backdrop" id="employee-document-modal" role="dialog" aria-modal="true" aria-labelledby="employee-document-title"><form class="modal" id="employee-document-form"><div class="modal-head"><div><h2 id="employee-document-title">Документ сотрудника</h2><p>Сохраняется название файла и описание</p></div><button class="close-modal" type="button" data-close-employee-document aria-label="Закрыть">×</button></div><div class="form-grid"><div class="field full"><label for="employee-document-name">Название</label><input id="employee-document-name" required></div><div class="field"><label for="employee-document-kind">Тип</label><select id="employee-document-kind"><option>Документ</option><option>Договор</option><option>Сертификат</option><option>Удостоверение</option></select></div><div class="field"><label for="employee-document-date">Дата</label><input id="employee-document-date" type="date"></div><div class="field full"><label for="employee-document-note">Описание</label><textarea id="employee-document-note" rows="2"></textarea></div></div><div class="modal-actions"><button class="btn" type="button" data-close-employee-document>Отмена</button><button class="btn btn-primary" type="submit">Сохранить документ</button></div></form></div>
   <div class="modal-backdrop" id="appointment-detail-modal" role="dialog" aria-modal="true" aria-labelledby="detail-title"><section class="modal client-modal"><div class="modal-head"><div><h2 id="detail-title">Карта клиента</h2><p id="detail-description"></p></div><button class="close-modal" type="button" data-close-detail aria-label="Закрыть">×</button></div><div class="client-tabs" role="tablist"><button class="client-tab active" data-client-tab="record" role="tab">Запись</button><button class="client-tab" data-client-tab="about" role="tab">О клиенте</button><button class="client-tab" data-client-tab="visits" role="tab">Посещения</button><button class="client-tab" data-client-tab="calls" role="tab">Звонки</button></div><div id="detail-content"></div><div class="modal-actions"><button class="btn" type="button" data-close-detail>Закрыть</button></div></section></div>
   <div class="modal-backdrop" id="cash-modal" role="dialog" aria-modal="true" aria-labelledby="cash-modal-title"><form class="modal" id="cash-form"><div class="modal-head"><div><h2 id="cash-modal-title">Операция по кассе</h2><p>Суммы в евро · выберите назначение платежа</p></div><button class="close-modal" type="button" data-close-cash aria-label="Закрыть">×</button></div><div class="form-grid"><div class="field"><label for="cash-kind">Тип операции</label><select id="cash-kind" name="kind"><option value="income">Приход</option><option value="expense">Расход</option><option value="salary">Выплата зарплаты</option></select></div><div class="field"><label for="cash-method">Способ оплаты</label><select id="cash-method" name="method"><option value="cash">Наличные</option><option value="card">Банковская карта</option><option value="transfer">Перевод / счёт</option></select></div><div class="field full"><label for="cash-purpose">Категория / назначение платежа</label><select id="cash-purpose" name="category"></select></div><div class="field full"><label for="cash-title">Детали операции</label><input id="cash-title" name="title" placeholder="Например, клиент или товар"></div><div class="field"><label for="cash-amount">Сумма, €</label><input id="cash-amount" name="amount" type="number" min="0.01" step="0.01" required></div><div class="field"><label for="cash-client">Клиент / сотрудник</label><input id="cash-client" name="client" placeholder="Необязательно"></div><div class="field full"><label for="cash-note">Комментарий</label><input id="cash-note" name="note" placeholder="Комментарий к операции"></div></div><div class="modal-actions"><button class="btn" type="button" data-close-cash>Отмена</button><button class="btn btn-primary" type="submit">Сохранить операцию</button></div></form></div>
   <div class="modal-backdrop" id="cash-categories-modal" role="dialog" aria-modal="true" aria-labelledby="cash-categories-title"><section class="modal"><div class="modal-head"><div><h2 id="cash-categories-title">Категории платежей</h2><p>Назначения для прихода и расхода</p></div><button class="close-modal" type="button" data-close-categories aria-label="Закрыть">×</button></div><div id="cash-categories-content"></div><form id="cash-category-form" class="client-card-actions"><div class="field"><label for="cash-category-name">Название категории</label><input id="cash-category-name" name="name" required placeholder="Например, Косвенные расходы"></div><div class="field"><label for="cash-category-kind">Для операций</label><select id="cash-category-kind" name="kind"><option value="expense">Расход</option><option value="income">Приход</option></select></div><button class="btn btn-primary btn-small" type="submit">＋ Добавить</button></form><div class="modal-actions"><button class="btn" type="button" data-close-categories>Готово</button></div></section></div>
@@ -610,7 +754,7 @@
       { id: 102, date: '2026-10-02', kind: 'income', category: 'Оплата услуги', title: 'Оформление бровей', amount: 42, method: 'card', client: 'Анастасия Кузнецова', staffName: 'Мария Волкова', note: '' },
       { id: 103, date: '2026-10-02', kind: 'income', category: 'Оплата услуги', title: 'Массаж спины', amount: 55, method: 'cash', client: 'Марина Соколова', staffName: 'София Петрова', note: '' }
     ];
-    const defaultCashCategories = { income: ['Оплата услуги', 'Продажа товара', 'Пополнение депозита', 'Внесение средств', 'Компенсация'], expense: ['Аренда помещения', 'Зарплата', 'Выплата аванса', 'Закупка материалов', 'Косвенные расходы', 'Налоги и сборы', 'Возврат клиенту', 'Прочие расходы'] };
+    const defaultCashCategories = { income: ['Оплата услуги', 'Продажа товара', 'Продажа абонемента', 'Продажа сертификата', 'Пополнение депозита', 'Внесение средств', 'Компенсация'], expense: ['Аренда помещения', 'Зарплата', 'Выплата аванса', 'Закупка материалов', 'Косвенные расходы', 'Налоги и сборы', 'Возврат клиенту', 'Прочие расходы'] };
     const defaultClientCalls = [
       { client: 'Анастасия Кузнецова', type: 'Звонок', direction: 'Исходящий', date: '2026-10-01 16:20', note: 'Подтверждён визит на пятницу' },
       { client: 'Анастасия Кузнецова', type: 'SMS', direction: 'Исходящее', date: '2026-09-30 10:05', note: 'Напоминание о записи' }
@@ -717,7 +861,7 @@
     let cashCategories = { income: [...defaultCashCategories.income], expense: [...defaultCashCategories.expense] };
     try {
       const savedCashCategories = JSON.parse(localStorage.getItem('neoBeautyCashCategories') || 'null');
-      if (savedCashCategories && Array.isArray(savedCashCategories.income) && Array.isArray(savedCashCategories.expense)) cashCategories = savedCashCategories;
+      if (savedCashCategories && Array.isArray(savedCashCategories.income) && Array.isArray(savedCashCategories.expense)) cashCategories = { income: [...new Set([...defaultCashCategories.income, ...savedCashCategories.income])], expense: [...new Set([...defaultCashCategories.expense, ...savedCashCategories.expense])] };
     } catch {}
     let clientCalls;
     try { clientCalls = JSON.parse(localStorage.getItem('neoBeautyCalls')) || defaultClientCalls; }
@@ -727,9 +871,13 @@
     let employeeProfileTab = 'overview';
     let employeeProfilePeriod = 'month';
     let employeeProfileEditMode = false;
+    let employeeChartLines = { revenue: true, visits: true };
     let activeSidebarMenu = '';
     let analyticsMode = 'reports';
     let currentDate = new Date(2026, 9, 2);
+    let employeeSalaryMonth = `${currentDate.getFullYear()}-${String(currentDate.getMonth() + 1).padStart(2, '0')}`;
+    let employeeSalaryWizardStep = 1;
+    let employeeSalaryWizardDraft = null;
     let calendarMode = 'День';
     let searchQuery = '';
     let selectedStaffFilter = 'all';
@@ -754,8 +902,11 @@
     try { staffBreaks = JSON.parse(localStorage.getItem('neoBeautyBreaks')) || {}; } catch { staffBreaks = {}; }
     let employeeProfiles = {};
     try { employeeProfiles = JSON.parse(localStorage.getItem('neoBeautyEmployeeProfiles')) || {}; } catch { employeeProfiles = {}; }
+    Object.entries(employeeProfiles).forEach(([index, profile]) => { if (staff[Number(index)] && typeof profile.phone === 'string') staff[Number(index)].phone = profile.phone; });
     let employeeSalaryEntries = [];
     try { employeeSalaryEntries = JSON.parse(localStorage.getItem('neoBeautySalaryEntries')) || []; } catch { employeeSalaryEntries = []; }
+    let employeeSalaryTemplates = [];
+    try { employeeSalaryTemplates = JSON.parse(localStorage.getItem('neoBeautySalaryTemplates')) || []; } catch { employeeSalaryTemplates = []; }
     let toastTimer;
     const root = document.getElementById('view-root');
     const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
@@ -947,21 +1098,313 @@
     function getEmployeeProfile(index) {
       const person = staff[index];
       if (!employeeProfiles[index]) {
-        employeeProfiles[index] = { firstName: person.name.split(' ')[0], surname: person.name.split(' ').slice(1).join(' '), status: 'Работает', role: person.role, phone: person.phone || '', birthday: '', gender: '', startDate: '2024-08-05', showOnline: true, internalNumber: '', taxNumber: '', workStart: person.workStart || '11:00', workEnd: person.workEnd || '19:00', workingDays: [0, 1, 2, 3, 4], dayHours: {}, color: person.color, fixedSalary: '0', commission: '0', advanceEnabled: 'Нет', comments: '', reviews: [], onlineStart: person.workStart || '11:00', onlineEnd: person.workEnd || '19:00', attendance: 'По администратору' };
+        employeeProfiles[index] = { firstName: person.name.split(' ')[0], surname: person.name.split(' ').slice(1).join(' '), status: 'Работает', role: person.role, phone: person.phone || '', birthday: '', gender: '', startDate: '2024-08-05', showOnline: true, internalNumber: '', taxNumber: '', workStart: person.workStart || '11:00', workEnd: person.workEnd || '19:00', workingDays: [0, 1, 2, 3, 4], dayHours: {}, color: person.color, fixedSalary: '0', commission: '0', advanceEnabled: 'Нет', comments: '', reviews: [], contacts: person.phone ? [{ type: 'Мобильный телефон', value: person.phone, primary: true }] : [], documents: [], onlineStart: person.workStart || '11:00', onlineEnd: person.workEnd || '19:00', attendance: 'По администратору' };
       }
+      employeeProfiles[index].contacts ||= [];
+      employeeProfiles[index].documents ||= [];
       return employeeProfiles[index];
+    }
+    const employeePayrollSources = [
+      { key: 'services', label: 'Услуги', kind: 'appointment' },
+      { key: 'goods', label: 'Товары', kind: 'sale' },
+      { key: 'memberships', label: 'Абонементы и депозиты', kind: 'sale' },
+      { key: 'certificates', label: 'Сертификаты', kind: 'sale' },
+      { key: 'newClients', label: 'Новые клиенты', kind: 'client' },
+      { key: 'returningClients', label: 'Повторные визиты', kind: 'client' }
+    ];
+    function employeeSalesSource(entry) {
+      if (['goods', 'memberships', 'certificates'].includes(entry.commissionSource)) return entry.commissionSource;
+      const category = String(entry.category || '').toLocaleLowerCase('ru');
+      if (category.includes('сертификат')) return 'certificates';
+      if (category.includes('абонемент') || category.includes('депозит')) return 'memberships';
+      if (category.includes('товар')) return 'goods';
+      return '';
+    }
+    function getCashEntryEmployeeIndex(entry) {
+      if (entry.staff !== undefined && entry.staff !== null && entry.staff !== '') return Number(entry.staff);
+      return entry.staffName ? staff.findIndex((person) => person.name === entry.staffName) : -1;
+    }
+    function salaryRuleFor(profile, key) {
+      const saved = profile.salaryRules?.[key] || {};
+      if (key === 'services' && saved.rate === undefined) return { mode: 'percent', basis: 'revenue', rate: Number(profile.commission || 0) };
+      if (key === 'goods' && saved.rate === undefined && appSettings.salesCommissionEnabled) return { mode: 'percent', basis: appSettings.salesCommissionBase === 'margin' ? 'margin' : 'revenue', rate: Number(appSettings.salesCommissionPercent || 0) };
+      return { mode: 'percent', basis: 'revenue', rate: 0, ...saved };
+    }
+    function employeeSalaryItemName(key, item) {
+      if (key === 'services') return String(item.service || '').trim();
+      if (item.itemName) return String(item.itemName).trim();
+      const title = String(item.title || '').trim();
+      return title.includes(' · ') ? title.slice(title.indexOf(' · ') + 3).trim() : title;
+    }
+    function employeeSalaryOverride(profile, key, item) {
+      const itemName = employeeSalaryItemName(key, item).toLocaleLowerCase('ru');
+      return (profile.salaryOverrides || []).find((override) => override.source === key && override.itemName.toLocaleLowerCase('ru') === itemName);
+    }
+    function getEmployeeWorkedDates(index, month) {
+      const dates = new Set(appointments.filter((item) => Number(item.staff) === index && item.status === 'completed' && item.date.startsWith(month)).map((item) => item.date));
+      Object.entries(employeeAttendance).forEach(([key, value]) => { const [date, staffIndex] = key.split(':'); if (Number(staffIndex) === index && date.startsWith(month) && value?.status) dates.add(date); });
+      return [...dates].sort();
     }
     function calculateEmployeePayroll(index) {
       const profile = getEmployeeProfile(index);
-      const serviceRevenue = appointments.filter((item) => Number(item.staff) === index && item.status === 'completed').reduce((sum, item) => sum + Number(item.price || 0), 0);
-      const commissionAmount = serviceRevenue * Number(profile.commission || 0) / 100;
-      const ledger = employeeSalaryEntries.filter((entry) => Number(entry.staff) === index);
+      const month = employeeSalaryMonth;
+      const inMonth = (item) => String(item.period || item.date || '').startsWith(month);
+      const completed = appointments.filter((item) => Number(item.staff) === index && item.status === 'completed' && inMonth(item));
+      const allCompleted = appointments.filter((item) => item.status === 'completed').sort((a, b) => `${a.date} ${a.time}`.localeCompare(`${b.date} ${b.time}`));
+      const firstVisitIds = new Set();
+      const seenClients = new Set();
+      allCompleted.forEach((item) => { const name = String(item.client || '').toLocaleLowerCase('ru'); if (name && !seenClients.has(name)) { firstVisitIds.add(item.id); seenClients.add(name); } });
+      const sourceItems = {
+        services: completed,
+        goods: cashEntries.filter((entry) => entry.kind === 'income' && inMonth(entry) && getCashEntryEmployeeIndex(entry) === index && employeeSalesSource(entry) === 'goods'),
+        memberships: cashEntries.filter((entry) => entry.kind === 'income' && inMonth(entry) && getCashEntryEmployeeIndex(entry) === index && employeeSalesSource(entry) === 'memberships'),
+        certificates: cashEntries.filter((entry) => entry.kind === 'income' && inMonth(entry) && getCashEntryEmployeeIndex(entry) === index && employeeSalesSource(entry) === 'certificates'),
+        newClients: completed.filter((item) => firstVisitIds.has(item.id)),
+        returningClients: completed.filter((item) => !firstVisitIds.has(item.id))
+      };
+      const sources = Object.fromEntries(employeePayrollSources.map(({ key, label, kind }) => {
+        const items = sourceItems[key];
+        const basisValue = (item, rule) => rule.basis === 'margin' ? Math.max(0, Number(item.amount || item.price || 0) - Number(item.cost || 0)) : Number(item.amount || item.price || 0);
+        const rule = salaryRuleFor(profile, key);
+        const base = items.reduce((sum, item) => sum + basisValue(item, rule), 0);
+        const amount = items.reduce((sum, item) => { const appliedRule = employeeSalaryOverride(profile, key, item) || rule; const itemBase = basisValue(item, appliedRule); return sum + (appliedRule.mode === 'fixed' ? Number(appliedRule.rate || 0) : itemBase * Number(appliedRule.rate || 0) / 100); }, 0);
+        return [key, { key, label, kind, items, count: items.length, base, amount, rule }];
+      }));
+      const workedDates = getEmployeeWorkedDates(index, month);
+      const fixedRate = Number(profile.fixedSalary || 0);
+      const fixedMode = profile.fixedSalaryMode || 'month';
+      let fixedAmount = fixedRate;
+      if (fixedMode !== 'month') {
+        const hoursForDate = (date) => { const day = new Date(`${date}T12:00:00`).getDay(); const hours = profile.dayHours?.[day]; const [startHour, startMinute] = String(hours?.start || profile.workStart || '11:00').split(':').map(Number); const [endHour, endMinute] = String(hours?.end || profile.workEnd || '19:00').split(':').map(Number); return Math.max(0, ((endHour * 60 + endMinute) - (startHour * 60 + startMinute)) / 60); };
+        fixedAmount = workedDates.reduce((sum, date) => sum + fixedRate * (fixedMode === 'hour' ? hoursForDate(date) : 1), 0);
+      }
+      const ledger = employeeSalaryEntries.filter((entry) => Number(entry.staff) === index && inMonth(entry));
       const totalFor = (kind) => ledger.filter((entry) => Array.isArray(kind) ? kind.includes(entry.kind) : entry.kind === kind).reduce((sum, entry) => sum + entry.amount, 0);
       const bonuses = totalFor('bonus');
       const penalties = totalFor('penalty');
       const advancesAndPaid = totalFor(['advance', 'paid']);
-      const due = Number(profile.fixedSalary || 0) + commissionAmount + bonuses - penalties - advancesAndPaid;
-      return { profile, serviceRevenue, commissionAmount, bonuses, penalties, advancesAndPaid, due };
+      const serviceRevenue = sources.services.base;
+      const commissionAmount = Object.values(sources).reduce((sum, source) => sum + source.amount, 0);
+      const due = fixedAmount + commissionAmount + bonuses - penalties - advancesAndPaid;
+      return { profile, month, sources, fixedAmount, fixedMode, workedDateCount: workedDates.length, serviceRevenue, commissionAmount, bonuses, penalties, advancesAndPaid, due, ledger };
+    }
+    function collectEmployeeSalaryConfiguration() {
+      const salaryRules = Object.fromEntries(employeePayrollSources.map(({ key }) => [key, { mode: document.querySelector(`[data-salary-rule-mode="${key}"]`).value, rate: Number(document.querySelector(`[data-salary-rule-rate="${key}"]`).value || 0), basis: document.querySelector(`[data-salary-rule-basis="${key}"]`).value }]));
+      return { fixedSalary: document.getElementById('salary-fixed-rate').value, fixedSalaryMode: document.getElementById('salary-fixed-mode').value, salaryRules, salaryOverrides: JSON.parse(JSON.stringify(getEmployeeProfile(selectedEmployeeIndex).salaryOverrides || [])), commission: salaryRules.services.mode === 'percent' ? String(salaryRules.services.rate) : '0' };
+    }
+    function applyEmployeeSalaryConfiguration(profile, configuration) {
+      profile.fixedSalary = String(configuration.fixedSalary || 0);
+      profile.fixedSalaryMode = configuration.fixedSalaryMode || 'month';
+      profile.salaryRules = JSON.parse(JSON.stringify(configuration.salaryRules || {}));
+      profile.salaryOverrides = JSON.parse(JSON.stringify(configuration.salaryOverrides || []));
+      profile.commission = String(configuration.commission ?? (profile.salaryRules.services?.rate || 0));
+    }
+    function openEmployeeSalaryTemplates() {
+      let modal = document.getElementById('employee-salary-templates');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'employee-salary-templates';
+        modal.className = 'modal-backdrop';
+        modal.innerHTML = '<section class="modal"><div class="modal-head"><div><h2>Шаблоны зарплаты</h2><p>Схемы можно применять к разным сотрудникам</p></div><button class="close-modal" type="button" data-close-salary-templates aria-label="Закрыть">×</button></div><div class="salary-template-controls"><label>Применить сохранённую схему<select id="salary-template-select"></select></label><button class="btn btn-primary" data-action="apply-salary-template">Применить</button><label>Сохранить текущую схему<input id="salary-template-name" placeholder="Например, Мастера услуг"></label><button class="btn btn-gold" data-action="save-salary-template">Сохранить шаблон</button></div><div class="modal-actions"><button class="btn" type="button" data-close-salary-templates>Готово</button></div></section>';
+        modal.addEventListener('click', (event) => { if (event.target === modal || event.target.closest('[data-close-salary-templates]')) modal.classList.remove('open'); });
+        document.body.append(modal);
+      }
+      const select = modal.querySelector('#salary-template-select');
+      select.innerHTML = `<option value="">Выберите шаблон</option>${employeeSalaryTemplates.map((template) => `<option value="${escapeHtml(template.id)}">${escapeHtml(template.name)}</option>`).join('')}`;
+      modal.classList.add('open');
+    }
+    function renderEmployeeSalaryOverrides(profile) {
+      const overrideItems = profile.salaryOverrides || [];
+      const overrideLabels = Object.fromEntries(employeePayrollSources.map((source) => [source.key, source.label]));
+      const overrideRows = overrideItems.map((item) => `<div class="salary-override-item"><span><strong>${escapeHtml(overrideLabels[item.source] || item.source)} · ${escapeHtml(item.itemName)}</strong> · ${item.mode === 'fixed' ? `${cashMoney(item.rate)} за событие` : `${item.rate}%${item.basis === 'margin' ? ' с маржи' : ' с оборота'}`}</span><button class="link-button" data-action="remove-salary-override" data-salary-override-id="${item.id}">Удалить</button></div>`).join('');
+      const suggestions = [...new Set([...appointments.map((item) => item.service), ...getInventoryItems().map((item) => { const decoded = document.createElement('textarea'); decoded.innerHTML = item[0]; return decoded.value; }), ...cashEntries.map((item) => item.itemName).filter(Boolean)].filter(Boolean))];
+      return `<section class="panel simple-panel salary-overrides"><h2>Индивидуальные ставки</h2><div class="salary-override-form"><label>Направление<select id="salary-override-source">${employeePayrollSources.filter((source) => source.kind !== 'client').map((source) => `<option value="${source.key}">${source.label}</option>`).join('')}</select></label><label>Название услуги, товара или сертификата<input id="salary-override-name" list="salary-override-suggestions" placeholder="Точное название"></label><label>Начисление<select id="salary-override-mode"><option value="percent">Процент</option><option value="fixed">Фиксированная сумма</option></select></label><label>Размер<input id="salary-override-rate" type="number" min="0" step="0.01" value="0"></label><label>База<select id="salary-override-basis"><option value="revenue">С оборота</option><option value="margin">С маржи</option></select></label><button class="btn btn-small" data-action="add-salary-override">Добавить ставку</button></div><datalist id="salary-override-suggestions">${suggestions.map((name) => `<option value="${escapeHtml(name)}">`).join('')}</datalist><div class="salary-override-list">${overrideRows || '<span class="cell-sub">Для остальных позиций действуют общие ставки выше.</span>'}</div></section>`;
+    }
+    function renderEmployeeSalary(profile, payroll) {
+      const fixedModeLabels = { month: 'В месяц', shift: 'За смену', hour: 'За час' };
+      const sourceRows = employeePayrollSources.map(({ key, label }) => {
+        const source = payroll.sources[key];
+        const rule = source.rule;
+        return `<tr><td><strong>${label}</strong><small class="cell-sub">${source.count} ${source.kind === 'appointment' ? 'завершённых визитов' : source.kind === 'sale' ? 'продаж' : 'событий'}</small></td><td><select data-salary-rule-mode="${key}" aria-label="Тип начисления: ${label}"><option value="percent" ${rule.mode !== 'fixed' ? 'selected' : ''}>Процент</option><option value="fixed" ${rule.mode === 'fixed' ? 'selected' : ''}>Фиксированная сумма</option></select></td><td><label class="salary-rate-input"><input data-salary-rule-rate="${key}" type="number" min="0" step="0.01" value="${escapeHtml(rule.rate)}" aria-label="Ставка: ${label}"><span>${rule.mode === 'fixed' ? '€ за событие' : '%'}</span></label></td><td><select data-salary-rule-basis="${key}" aria-label="База расчёта: ${label}" ${source.kind !== 'sale' ? 'disabled' : ''}><option value="revenue" ${rule.basis !== 'margin' ? 'selected' : ''}>С суммы продажи</option><option value="margin" ${rule.basis === 'margin' ? 'selected' : ''}>С маржи</option></select></td><td class="salary-rule-result">${cashMoney(source.amount)}</td></tr>`;
+      }).join('');
+      const earningRows = employeePayrollSources.flatMap(({ key, label }) => payroll.sources[key].items.map((item) => {
+        const source = payroll.sources[key];
+        const amount = Number(item.amount || item.price || 0);
+        const rule = employeeSalaryOverride(profile, key, item) || source.rule;
+        const base = rule.basis === 'margin' ? Math.max(0, amount - Number(item.cost || 0)) : amount;
+        const earning = rule.mode === 'fixed' ? Number(rule.rate || 0) : base * Number(rule.rate || 0) / 100;
+        return `<tr><td>${escapeHtml(item.date || '')}</td><td>${escapeHtml(label)}</td><td>${escapeHtml(item.client || employeeSalaryItemName(key, item) || item.note || '—')}</td><td>${cashMoney(base)}</td><td>${cashMoney(earning)}</td></tr>`;
+      })).join('');
+      const ledgerLabels = { advance: 'Аванс', paid: 'Выплата', bonus: 'Премия', penalty: 'Штраф' };
+      const ledgerRows = payroll.ledger.map((entry) => `<tr><td>${escapeHtml(entry.date || '')}</td><td>${ledgerLabels[entry.kind] || escapeHtml(entry.kind)}</td><td>${escapeHtml(entry.note || '—')}</td><td>${entry.kind === 'penalty' || entry.kind === 'advance' || entry.kind === 'paid' ? '−' : '+'}${cashMoney(entry.amount)}${['bonus', 'penalty', 'advance'].includes(entry.kind) || entry.cashEntryId ? ` <button class="link-button" data-action="remove-salary-entry" data-salary-entry-id="${entry.id}">Удалить</button>` : ''}</td></tr>`).join('');
+      const fixedMode = profile.fixedSalaryMode || 'month';
+      return `<div class="metric-grid salary-summary-grid"><article class="metric" style="--metric-color:#bd9455"><div class="metric-label">Фиксированная часть · ${fixedModeLabels[payroll.fixedMode] || 'В месяц'}</div><div class="metric-value">${cashMoney(payroll.fixedAmount)}</div></article><article class="metric" style="--metric-color:#71917a"><div class="metric-label">Комиссии и бонусы</div><div class="metric-value">${cashMoney(payroll.commissionAmount + payroll.bonuses)}</div></article><article class="metric" style="--metric-color:#8aaab0"><div class="metric-label">Авансы и выплаты</div><div class="metric-value">${cashMoney(payroll.advancesAndPaid)}</div></article><article class="metric" style="--metric-color:#cb7867"><div class="metric-label">К выплате за ${payroll.month}</div><div class="metric-value">${cashMoney(payroll.due)}</div></article></div><section class="panel simple-panel salary-config-panel"><div class="panel-toolbar"><div class="panel-title">Схема начисления<small>Период расчёта: ${payroll.month}</small></div><button class="btn btn-primary" data-action="save-salary-rules">Сохранить правила</button></div><div class="salary-fixed-controls"><label>Расчётный месяц<input id="salary-period-month" type="month" value="${payroll.month}"></label><label>Фиксированная часть<input id="salary-fixed-rate" type="number" min="0" step="0.01" value="${escapeHtml(profile.fixedSalary || 0)}"></label><label>Способ начисления<select id="salary-fixed-mode"><option value="month" ${fixedMode === 'month' ? 'selected' : ''}>В месяц</option><option value="shift" ${fixedMode === 'shift' ? 'selected' : ''}>За смену</option><option value="hour" ${fixedMode === 'hour' ? 'selected' : ''}>За час</option></select></label><span class="salary-work-count">Учтено смен: ${payroll.workedDateCount}</span></div><div class="table-wrap salary-rules-wrap"><table class="salary-rules-table"><thead><tr><th>Направление</th><th>Начисление</th><th>Размер</th><th>База</th><th>За период</th></tr></thead><tbody>${sourceRows}</tbody></table></div></section><section class="panel simple-panel"><h2 class="panel-title">Основания начислений</h2><div class="table-wrap"><table><thead><tr><th>Дата</th><th>Направление</th><th>Визит или продажа</th><th>База</th><th>Начислено</th></tr></thead><tbody>${earningRows || '<tr><td colspan="5" class="empty-state">Начислений по визитам и продажам за период нет</td></tr>'}</tbody></table></div></section><section class="panel simple-panel"><h2 class="panel-title">Премии, штрафы и авансы</h2><div class="employee-profile-edit salary-entry-form"><label>Тип<select id="salary-entry-kind"><option value="advance">Аванс</option><option value="bonus">Премия</option><option value="penalty">Штраф</option></select></label><label>Сумма, €<input id="salary-entry-amount" type="number" min="0.01" step="0.01"></label><label>Основание<input id="salary-entry-note" type="text" placeholder="Например, премия за месяц"></label><button class="btn" data-action="add-salary-entry">Добавить начисление</button></div><div class="table-wrap salary-ledger-wrap"><table><thead><tr><th>Дата</th><th>Тип</th><th>Основание</th><th>Сумма</th></tr></thead><tbody>${ledgerRows || '<tr><td colspan="4" class="empty-state">Корректировок за период нет</td></tr>'}</tbody></table></div></section>`;
+    }
+
+    function employeeMonthlyActivity(index, monthCount = 6) {
+      return Array.from({ length: monthCount }, (_, offset) => {
+        const date = new Date(currentDate.getFullYear(), currentDate.getMonth() - (monthCount - offset - 1), 1);
+        const prefix = `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, '0')}`;
+        const monthAppointments = appointments.filter((item) => Number(item.staff) === index && item.date.startsWith(prefix) && !['cancelled', 'no_show'].includes(item.status));
+        return { label: dateLabel(date, { month: 'short' }), revenue: monthAppointments.reduce((sum, item) => sum + Number(item.price || 0), 0), visits: monthAppointments.length };
+      });
+    }
+    function drawEmployeeActivityChart() {
+      const canvas = document.getElementById('employee-activity-chart');
+      if (!canvas) return;
+      const context = canvas.getContext('2d');
+      if (!context) return;
+      const rect = canvas.getBoundingClientRect();
+      if (!rect.width || !rect.height) return;
+      const pixelRatio = window.devicePixelRatio || 1;
+      canvas.width = Math.round(rect.width * pixelRatio);
+      canvas.height = Math.round(rect.height * pixelRatio);
+      context.scale(pixelRatio, pixelRatio);
+      const width = rect.width;
+      const height = rect.height;
+      const pad = { top: 12, right: 12, bottom: 24, left: 38 };
+      const plotWidth = width - pad.left - pad.right;
+      const plotHeight = height - pad.top - pad.bottom;
+      const data = employeeMonthlyActivity(selectedEmployeeIndex);
+      const maxRevenue = Math.max(1, ...data.map((item) => item.revenue));
+      const maxVisits = Math.max(1, ...data.map((item) => item.visits));
+      context.clearRect(0, 0, width, height);
+      context.font = '9px DM Sans';
+      context.textBaseline = 'middle';
+      context.strokeStyle = '#e8e6df';
+      context.fillStyle = '#858b84';
+      for (let line = 0; line <= 3; line++) {
+        const y = pad.top + plotHeight * line / 3;
+        context.beginPath(); context.moveTo(pad.left, y); context.lineTo(width - pad.right, y); context.stroke();
+        context.fillText(`${Math.round(maxRevenue * (3 - line) / 3 / 100) / 10}k`, 2, y);
+      }
+      const point = (index, value, max) => ({ x: pad.left + plotWidth * index / Math.max(1, data.length - 1), y: pad.top + plotHeight * (1 - value / max) });
+      const drawLine = (key, max, color, fill) => {
+        if (!employeeChartLines[key]) return;
+        const points = data.map((item, index) => point(index, item[key], max));
+        if (fill) {
+          context.beginPath(); context.moveTo(points[0].x, pad.top + plotHeight);
+          points.forEach((item) => context.lineTo(item.x, item.y));
+          context.lineTo(points[points.length - 1].x, pad.top + plotHeight); context.closePath(); context.fillStyle = fill; context.fill();
+        }
+        context.beginPath(); points.forEach((item, index) => index ? context.lineTo(item.x, item.y) : context.moveTo(item.x, item.y)); context.strokeStyle = color; context.lineWidth = 2; context.stroke();
+        points.forEach((item) => { context.beginPath(); context.arc(item.x, item.y, 3, 0, Math.PI * 2); context.fillStyle = color; context.fill(); });
+      };
+      drawLine('revenue', maxRevenue, '#bd9455', 'rgba(189,148,85,.12)');
+      drawLine('visits', maxVisits, '#5e9291');
+      data.forEach((item, index) => { const x = pad.left + plotWidth * index / Math.max(1, data.length - 1); context.fillStyle = '#777f77'; context.textAlign = 'center'; context.fillText(item.label, x, height - 9); });
+      context.textAlign = 'left';
+    }
+    function employeeTenure(startDate) {
+      if (!startDate) return 'Не указано';
+      const start = new Date(`${startDate}T12:00:00`);
+      let months = Math.max(0, (currentDate.getFullYear() - start.getFullYear()) * 12 + currentDate.getMonth() - start.getMonth());
+      if (currentDate.getDate() < start.getDate()) months = Math.max(0, months - 1);
+      const years = Math.floor(months / 12);
+      const rest = months % 12;
+      return `${years ? `${years} г. ` : ''}${rest} мес.`;
+    }
+    function renderEmployeeOverview() {
+      const person = staff[selectedEmployeeIndex];
+      const profile = getEmployeeProfile(selectedEmployeeIndex);
+      const employeeAppointments = appointments.filter((item) => Number(item.staff) === selectedEmployeeIndex && !['cancelled', 'no_show'].includes(item.status));
+      const revenue = employeeAppointments.reduce((sum, item) => sum + Number(item.price || 0), 0);
+      const visits = employeeAppointments.length;
+      const rows = (items) => items.map(([label, value]) => `<div class="employee-profile-row"><span>${escapeHtml(label)}</span><strong>${escapeHtml(value || 'Не указано')}</strong></div>`).join('');
+      const contacts = profile.contacts || [];
+      const documents = profile.documents || [];
+      return `<div class="employee-overview-top"><div class="employee-kpis"><article class="employee-kpi revenue"><span class="employee-kpi-icon">€</span><span>ВЫРУЧКА<br>ЗА ВСЁ ВРЕМЯ</span><strong>${cashMoney(revenue)}</strong></article><article class="employee-kpi visits"><span class="employee-kpi-icon">♧</span><span>КОЛИЧЕСТВО ОБСЛУЖЕННЫХ<br>ПОСЕЩЕНИЙ</span><strong>${visits} шт.</strong></article><article class="employee-kpi tenure"><span class="employee-kpi-icon">♥</span><span>РАБОТАЕТ В СТУДИИ</span><strong>${employeeTenure(profile.startDate)}</strong></article></div><section class="employee-activity-chart"><div class="rail-panel-title">Динамика по месяцам <span>${dateLabel(currentDate, { year: 'numeric' })}</span></div><canvas id="employee-activity-chart" aria-label="График выручки и посещений"></canvas><div class="employee-chart-legend"><label><input type="checkbox" data-employee-chart-toggle="revenue" ${employeeChartLines.revenue ? 'checked' : ''}> Кол-во выручки</label><label><input type="checkbox" data-employee-chart-toggle="visits" ${employeeChartLines.visits ? 'checked' : ''}> Кол-во посещений</label></div></section></div><div class="employee-profile-grid"><section class="employee-profile-section"><h2 style="--section-accent:#d4935c">Главное <button class="icon-button" data-action="edit-employee-profile" title="Редактировать">✎</button></h2>${rows([['ID сотрудника', String(selectedEmployeeIndex + 1)], ['Статус', profile.status], ['Должность', profile.role], ['Фамилия', profile.surname], ['Имя', profile.firstName], ['Отображать онлайн', profile.showOnline ? 'Да' : 'Нет'], ['Телефон', profile.phone]])}</section><section class="employee-profile-section"><h2 style="--section-accent:#8aaab0">Адрес проживания <button class="icon-button" data-action="edit-employee-profile" title="Редактировать">✎</button></h2>${profile.address || profile.city || profile.postcode ? rows([['Адрес', profile.address], ['Город', profile.city], ['Почтовый индекс', profile.postcode]]) : '<div class="shift-hint">Адрес не указан</div>'}</section><section class="employee-profile-section"><h2 style="--section-accent:#cb7867">Доп. информация <button class="icon-button" data-action="edit-employee-profile" title="Редактировать">✎</button></h2>${rows([['Работает с', profile.startDate], ['Дата рождения', profile.birthday], ['Возраст', profile.birthday ? `${Math.max(0, currentDate.getFullYear() - new Date(profile.birthday).getFullYear())} лет` : ''], ['Пол', profile.gender], ['Внутр. номер', profile.internalNumber], ['Регистрационный код', profile.taxNumber], ['Цвет в графике', profile.color]])}</section><section class="employee-profile-section"><h2 style="--section-accent:#71917a">Контакты <button class="btn btn-small" data-action="add-employee-contact">＋ Добавить</button></h2><div class="employee-contact-list">${contacts.map((contact, index) => `<div class="employee-contact-item"><span>${escapeHtml(contact.type)} · ${escapeHtml(contact.value)}${contact.primary ? ' · основной' : ''}</span><button class="btn btn-small btn-danger" data-remove-employee-contact="${index}" title="Удалить контакт">×</button></div>`).join('') || '<div class="shift-hint">Контакты не добавлены</div>'}</div></section><section class="employee-profile-section"><h2 style="--section-accent:#a49ab1">Документы <button class="btn btn-small" data-action="add-employee-document">＋ Добавить</button></h2><div class="employee-document-list">${documents.map((document, index) => `<div class="employee-document-item"><span><strong>${escapeHtml(document.name)}</strong><small>${escapeHtml(document.kind)} · ${escapeHtml(document.date || '')} ${escapeHtml(document.fileName || '')}</small></span><button class="btn btn-small btn-danger" data-remove-employee-document="${index}">×</button></div>`).join('') || '<div class="shift-hint">Нет ни одного документа</div>'}</div></section><section class="employee-profile-section"><h2 style="--section-accent:#bd9455">Описание документа</h2><div class="shift-hint">${documents.length ? escapeHtml(documents[0].note || 'Описание не заполнено') : 'Нет ни одного документа'}</div></section></div>`;
+    }
+    function renderEmployeeVisits() {
+      const allVisits = appointments.filter((item) => Number(item.staff) === selectedEmployeeIndex);
+      const start = new Date(currentDate);
+      if (employeeProfilePeriod === 'week') start.setDate(start.getDate() - ((start.getDay() + 6) % 7));
+      if (employeeProfilePeriod === 'month') start.setDate(1);
+      const end = new Date(start);
+      if (employeeProfilePeriod === 'week') end.setDate(end.getDate() + 6);
+      if (employeeProfilePeriod === 'month') end.setMonth(end.getMonth() + 1, 0);
+      const visits = employeeProfilePeriod === 'all' ? allVisits : allVisits.filter((item) => item.date >= dateToISO(start) && item.date <= dateToISO(end));
+      const completed = visits.filter((item) => item.status === 'completed');
+      const totalRevenue = completed.reduce((sum, item) => sum + Number(item.price || 0), 0);
+      const lastVisit = [...completed].sort((a, b) => `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`))[0];
+      const lastDate = lastVisit ? dateLabel(new Date(`${lastVisit.date}T12:00:00`), { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—';
+      return `<div class="employee-overview-top"><div class="employee-kpis"><article class="employee-kpi revenue"><span class="employee-kpi-icon">♧</span><span>КОЛИЧЕСТВО<br>УСЛУГ</span><strong>${completed.length} шт.</strong></article><article class="employee-kpi visits"><span class="employee-kpi-icon">↗</span><span>КОЛИЧЕСТВО<br>ПОСЕЩЕНИЙ</span><strong>${visits.length} шт.</strong></article><article class="employee-kpi tenure"><span class="employee-kpi-icon">▦</span><span>ДАТА ПОСЛЕДНЕГО<br>ПОСЕЩЕНИЯ</span><strong>${lastDate}</strong></article></div><section class="employee-activity-chart"><div class="rail-panel-title">Выручка и посещения <span>${employeeProfilePeriod === 'all' ? 'Всё время' : dateLabel(start, { month: 'short' })}</span></div><canvas id="employee-activity-chart" aria-label="График посещений сотрудника"></canvas><div class="employee-chart-legend"><label><input type="checkbox" data-employee-chart-toggle="revenue" ${employeeChartLines.revenue ? 'checked' : ''}> Кол-во выручки</label><label><input type="checkbox" data-employee-chart-toggle="visits" ${employeeChartLines.visits ? 'checked' : ''}> Кол-во посещений</label></div></section></div><section class="employee-visits-ledger"><div class="segmented" style="width:max-content;margin:0 0 10px"><button data-employee-period="week" class="${employeeProfilePeriod === 'week' ? 'active' : ''}">Неделя</button><button data-employee-period="month" class="${employeeProfilePeriod === 'month' ? 'active' : ''}">Месяц</button><button data-employee-period="all" class="${employeeProfilePeriod === 'all' ? 'active' : ''}">Всё время</button></div><section class="panel data-panel"><div class="table-wrap"><table><thead><tr><th>Дата и время</th><th>Клиент</th><th>Услуга</th><th>Статус</th><th>Сумма</th></tr></thead><tbody>${visits.sort((a, b) => `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`)).map((item) => `<tr><td>${escapeHtml(item.date)} · ${escapeHtml(item.time)}</td><td><button class="link-button" data-client="${escapeHtml(item.client)}">${escapeHtml(item.client)}</button></td><td>${escapeHtml(item.service)}</td><td>${escapeHtml(item.status)}</td><td>${money(item.price || 0)}</td></tr>`).join('') || '<tr><td colspan="5" class="empty-state">Посещений за этот период нет</td></tr>'}</tbody></table></div></section></section>`;
+    }
+
+    function renderEmployeeSalaryPage(profile, payroll) {
+      const categories = [
+        { step: 1, icon: '✎', title: 'Настроить зарплату', value: 'Шаблон и правила', tone: 'setup' },
+        { step: 2, icon: '€', title: 'Фиксированная часть', value: cashMoney(payroll.fixedAmount), tone: 'fixed' },
+        { step: 3, icon: '↗', title: 'Плавающая часть', value: cashMoney(payroll.sources.services.amount), tone: 'services' },
+        { step: 4, icon: '▣', title: 'Продажи товаров', value: cashMoney(payroll.sources.goods.amount + payroll.sources.memberships.amount + payroll.sources.certificates.amount), tone: 'sales' },
+        { step: 5, icon: '♧', title: 'Привлечение клиентов', value: cashMoney(payroll.sources.newClients.amount), tone: 'acquisition' },
+        { step: 6, icon: '✦', title: 'Развитие клиентов', value: cashMoney(payroll.sources.returningClients.amount), tone: 'retention' }
+      ];
+      const modeLabels = { month: 'Фиксированная часть', shift: 'За смену', hour: 'За час' };
+      const rows = [{ title: modeLabels[payroll.fixedMode] || modeLabels.month, kind: 'Фиксированная часть', base: 0, costs: 0, amount: payroll.fixedAmount, formula: payroll.fixedMode === 'month' ? `${cashMoney(Number(profile.fixedSalary || 0))} за месяц` : `${cashMoney(Number(profile.fixedSalary || 0))} × ${payroll.workedDateCount} смен`, relation: `${payroll.workedDateCount} смен` }];
+      employeePayrollSources.forEach(({ key, label }) => {
+        const source = payroll.sources[key];
+        const costs = source.items.reduce((sum, item) => sum + Number(item.cost || 0), 0);
+        rows.push({ title: label, kind: source.rule.mode === 'fixed' ? 'Фикс. часть' : 'Плавающая часть', base: source.base, costs, amount: source.amount, formula: source.rule.mode === 'fixed' ? `${cashMoney(source.rule.rate)} за событие` : `${source.rule.rate}% от ${source.rule.basis === 'margin' ? 'маржи' : 'оборота'}`, relation: `${source.count} событий` });
+      });
+      payroll.ledger.forEach((entry) => rows.push({ title: entry.note || 'Корректировка', kind: ({ advance: 'Аванс', paid: 'Выплата', bonus: 'Премия', penalty: 'Штраф' })[entry.kind] || entry.kind, base: 0, costs: 0, amount: ['advance', 'paid', 'penalty'].includes(entry.kind) ? -Number(entry.amount) : Number(entry.amount), formula: 'Ручное начисление', relation: entry.date }));
+      const tableRows = rows.map((row, index) => `<tr><td>${index + 1}</td><td><strong>${escapeHtml(row.title)}</strong></td><td>${escapeHtml(row.kind)}</td><td>${cashMoney(row.base)}</td><td>${cashMoney(row.costs)}</td><td class="${row.amount < 0 ? 'salary-negative' : 'salary-positive'}">${row.amount < 0 ? '− ' : '+ '}${cashMoney(Math.abs(row.amount))}</td><td>${escapeHtml(row.formula)}</td><td>${cashMoney(Math.max(0, row.amount))}</td><td>${escapeHtml(row.relation)}</td></tr>`).join('');
+      const tiles = categories.map((item) => `<button type="button" class="salary-category-tile ${item.tone}" data-open-salary-wizard-step="${item.step}"><span class="salary-category-icon">${item.icon}</span><span class="salary-category-title">${escapeHtml(item.title)}</span><strong>${escapeHtml(item.value)}</strong></button>`).join('');
+      const details = renderEmployeeSalary(profile, payroll).replace('<section class="panel simple-panel"><h2 class="panel-title">Основания начислений</h2>', `${renderEmployeeSalaryOverrides(profile)}<section class="panel simple-panel"><h2 class="panel-title">Основания начислений</h2>`);
+      return `<section class="salary-category-grid" aria-label="Разделы расчёта зарплаты">${tiles}</section><section class="salary-current-section"><div class="salary-current-heading"><h2>Текущая зарплата</h2><label>Расчётный месяц<input id="salary-period-month" type="month" value="${payroll.month}"></label><button class="btn btn-primary" data-action="pay-employee-salary">Выплатить расчёт</button></div><div class="salary-current-summary"><div class="salary-current-stats"><div><span>Обслужено посещений</span><strong>${payroll.sources.services.count}</strong></div><div><span>Выручка</span><strong>${cashMoney(payroll.serviceRevenue)}</strong></div><div><span>Размер зарплаты</span><strong>${cashMoney(payroll.due)}</strong></div></div><div class="salary-current-note"><span>Расчёт за период</span><strong>${payroll.month}</strong><small>${payroll.workedDateCount} смен · ${payroll.sources.services.count} завершённых визитов</small></div></div><div class="table-wrap salary-current-table-wrap"><table class="salary-current-table"><thead><tr><th>№</th><th>Статья зарплаты</th><th>Тип статьи</th><th>Выручка</th><th>Материалы</th><th>Зарплата</th><th>Формула з/п</th><th>Начислено</th><th>Связь</th></tr></thead><tbody>${tableRows || '<tr><td colspan="9" class="empty-state">Начислений за этот период нет</td></tr>'}</tbody></table></div></section><details class="salary-advanced-settings"><summary>Настройка зарплаты и детализация</summary><div class="salary-advanced-content">${details}</div></details>`;
+    }
+
+    function salaryWizardRuleField(key, label, allowBasis = false) {
+      const rule = employeeSalaryWizardDraft.salaryRules[key] || { mode: 'percent', rate: 0, basis: 'revenue' };
+      return `<div class="salary-wizard-rule"><h3>${label}</h3><label>Система начисления<select data-wizard-rule-mode="${key}"><option value="percent" ${rule.mode === 'percent' ? 'selected' : ''}>Процент</option><option value="fixed" ${rule.mode === 'fixed' ? 'selected' : ''}>Сумма за событие</option></select></label><label>Размер<div class="salary-wizard-rate"><input data-wizard-rule-rate="${key}" type="number" min="0" step="0.01" value="${escapeHtml(rule.rate || 0)}"><span>${rule.mode === 'fixed' ? '€' : '%'}</span></div></label>${allowBasis ? `<label>Расчёт от<select data-wizard-rule-basis="${key}"><option value="revenue" ${rule.basis !== 'margin' ? 'selected' : ''}>Оборота</option><option value="margin" ${rule.basis === 'margin' ? 'selected' : ''}>Маржи</option></select></label>` : '<small>Начисление считается по завершённым визитам.</small>'}</div>`;
+    }
+    function captureEmployeeSalaryWizardStep() {
+      const modal = document.getElementById('employee-salary-wizard');
+      if (!modal || !employeeSalaryWizardDraft) return;
+      const fixedRate = modal.querySelector('[data-wizard-fixed-rate]');
+      if (fixedRate) employeeSalaryWizardDraft.fixedSalary = fixedRate.value;
+      const fixedMode = modal.querySelector('[data-wizard-fixed-mode]');
+      if (fixedMode) employeeSalaryWizardDraft.fixedSalaryMode = fixedMode.value;
+      employeePayrollSources.forEach(({ key }) => {
+        const mode = modal.querySelector(`[data-wizard-rule-mode="${key}"]`);
+        const rate = modal.querySelector(`[data-wizard-rule-rate="${key}"]`);
+        const basis = modal.querySelector(`[data-wizard-rule-basis="${key}"]`);
+        if (mode && rate) employeeSalaryWizardDraft.salaryRules[key] = { mode: mode.value, rate: Number(rate.value || 0), basis: basis?.value || 'revenue' };
+      });
+    }
+    function renderEmployeeSalaryWizardStep() {
+      const modal = document.getElementById('employee-salary-wizard');
+      if (!modal || !employeeSalaryWizardDraft) return;
+      const steps = ['Выбор шаблона', 'Фикс. часть', 'Плавающая часть', 'Продажи товаров', 'Привлечение клиентов', 'Развитие клиентов'];
+      const step = employeeSalaryWizardStep;
+      let body = '';
+      if (step === 1) body = `<h2>Выбор шаблона</h2><div class="salary-wizard-template-row"><label>Применить шаблон<select id="salary-wizard-template-select"><option value="">Без шаблона</option>${employeeSalaryTemplates.map((item) => `<option value="${escapeHtml(item.id)}">${escapeHtml(item.name)}</option>`).join('')}</select></label><button class="btn btn-primary" data-action="apply-salary-wizard-template">Применить</button></div><div class="salary-wizard-template-row"><label>Сохранить текущую схему<input id="salary-wizard-template-name" placeholder="Название шаблона"></label><button class="btn btn-gold" data-action="save-salary-wizard-template">Сохранить</button></div>`;
+      if (step === 2) body = `<h2>Фиксированная часть</h2><div class="salary-wizard-fields"><label>Размер, €<input data-wizard-fixed-rate type="number" min="0" step="0.01" value="${escapeHtml(employeeSalaryWizardDraft.fixedSalary || 0)}"></label><label>Система начисления<select data-wizard-fixed-mode><option value="month" ${employeeSalaryWizardDraft.fixedSalaryMode === 'month' ? 'selected' : ''}>За месяц</option><option value="shift" ${employeeSalaryWizardDraft.fixedSalaryMode === 'shift' ? 'selected' : ''}>За смену</option><option value="hour" ${employeeSalaryWizardDraft.fixedSalaryMode === 'hour' ? 'selected' : ''}>За час</option></select></label><p>При начислении за смену или час учитываются отработанные дни и часы по графику.</p></div>`;
+      if (step === 3) body = `<h2>Плавающая часть · услуги</h2>${salaryWizardRuleField('services', 'Все услуги')}<p class="salary-wizard-hint">Индивидуальные ставки по отдельным услугам задаются в детализации на странице зарплаты.</p>`;
+      if (step === 4) body = `<h2>Продажи</h2><div class="salary-wizard-rule-grid">${salaryWizardRuleField('goods', 'Товары', true)}${salaryWizardRuleField('memberships', 'Абонементы и депозиты', true)}${salaryWizardRuleField('certificates', 'Сертификаты', true)}</div>`;
+      if (step === 5) body = `<h2>Привлечение клиентов</h2>${salaryWizardRuleField('newClients', 'Новые клиенты')}<p class="salary-wizard-hint">Новый клиент определяется по его первому завершённому визиту.</p>`;
+      if (step === 6) body = `<h2>Развитие клиентов</h2>${salaryWizardRuleField('returningClients', 'Повторные визиты')}<p class="salary-wizard-hint">Повторными считаются последующие завершённые визиты клиента.</p>`;
+      modal.querySelector('.salary-wizard-steps').innerHTML = steps.map((label, index) => `<button type="button" data-salary-wizard-step="${index + 1}" class="${index + 1 === step ? 'active' : index + 1 < step ? 'complete' : ''}"><span>${index + 1 < step ? '✓' : index + 1}</span><small>${label}</small></button>`).join('');
+      modal.querySelector('.salary-wizard-content').innerHTML = body;
+      modal.querySelector('[data-action="salary-wizard-prev"]').disabled = step === 1;
+      modal.querySelector('[data-action="salary-wizard-next"]').hidden = step === 6;
+      modal.querySelector('[data-action="save-salary-wizard"]').hidden = step !== 6;
+    }
+    function openEmployeeSalaryWizard(step = 1) {
+      const profile = getEmployeeProfile(selectedEmployeeIndex);
+      employeeSalaryWizardDraft = { fixedSalary: profile.fixedSalary || '0', fixedSalaryMode: profile.fixedSalaryMode || 'month', salaryRules: Object.fromEntries(employeePayrollSources.map(({ key }) => [key, salaryRuleFor(profile, key)])), salaryOverrides: JSON.parse(JSON.stringify(profile.salaryOverrides || [])), commission: profile.commission || '0' };
+      let modal = document.getElementById('employee-salary-wizard');
+      if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'employee-salary-wizard';
+        modal.className = 'modal-backdrop salary-wizard-backdrop';
+        modal.innerHTML = '<section class="modal salary-wizard-modal"><div class="salary-wizard-steps"></div><div class="salary-wizard-content"></div><footer class="salary-wizard-footer"><button class="btn btn-danger" data-close-salary-wizard>Отмена</button><div><button class="btn" data-action="salary-wizard-prev">← Пред. шаг</button><button class="btn btn-primary" data-action="salary-wizard-next">След. шаг →</button><button class="btn btn-gold" data-action="save-salary-wizard">Сохранить</button></div></footer></section>';
+        modal.addEventListener('click', (event) => { if (event.target === modal || event.target.closest('[data-close-salary-wizard]')) modal.classList.remove('open'); });
+        document.body.append(modal);
+      }
+      employeeSalaryWizardStep = Math.min(6, Math.max(1, Number(step) || 1));
+      renderEmployeeSalaryWizardStep();
+      modal.classList.add('open');
     }
 
     function renderEmployeeProfile() {
@@ -969,6 +1412,10 @@
       if (!person) { currentView = 'team'; return renderTeam(); }
       const profile = getEmployeeProfile(selectedEmployeeIndex);
       const tabs = [['overview', 'Обзор'], ['visits', 'Посещения'], ['salary', 'Зарплата, штрафы, премии, авансы'], ['reviews', 'Отзывы / жалобы'], ['schedule', 'График работы'], ['comments', 'Комментарии'], ['online', 'Время для онлайн-записи']];
+      const profileActions = `${employeeProfileTab === 'salary' ? '<button class="icon-button" title="Распечатать расчёт" aria-label="Распечатать расчёт" data-action="print-employee-salary">▧</button>' : ''}<button class="btn" data-action="back-to-schedule">← К расписанию</button><button class="btn" data-action="employee-send-access">Отправить доступ</button><button class="btn btn-primary" data-action="edit-employee-profile">Изменить данные</button>`;
+      if (employeeProfileTab === 'salary') { const payroll = calculateEmployeePayroll(selectedEmployeeIndex); return heading('СОТРУДНИКИ', person.name, profile.role, profileActions) + `<nav class="employee-profile-tabs" aria-label="Разделы профиля сотрудника">${tabs.map(([id, label]) => `<button data-employee-tab="${id}" class="${employeeProfileTab === id ? 'active' : ''}">${label}</button>`).join('')}</nav>${renderEmployeeSalaryPage(profile, payroll)}`; }
+      if (employeeProfileTab === 'overview' && !employeeProfileEditMode) { requestAnimationFrame(drawEmployeeActivityChart); return heading('СОТРУДНИКИ', person.name, profile.role, profileActions) + `<nav class="employee-profile-tabs" aria-label="Разделы профиля сотрудника">${tabs.map(([id, label]) => `<button data-employee-tab="${id}" class="${employeeProfileTab === id ? 'active' : ''}">${label}</button>`).join('')}</nav>${renderEmployeeOverview()}`; }
+      if (employeeProfileTab === 'visits') { requestAnimationFrame(drawEmployeeActivityChart); return heading('СОТРУДНИКИ', person.name, profile.role, profileActions) + `<nav class="employee-profile-tabs" aria-label="Разделы профиля сотрудника">${tabs.map(([id, label]) => `<button data-employee-tab="${id}" class="${employeeProfileTab === id ? 'active' : ''}">${label}</button>`).join('')}</nav>${renderEmployeeVisits()}`; }
       let content = '';
       if (employeeProfileTab === 'overview' && employeeProfileEditMode) {
         const fields = [['firstName','Имя','text'],['surname','Фамилия','text'],['role','Должность','text'],['status','Статус','text'],['phone','Мобильный телефон','tel'],['email','Email','email'],['birthday','Дата рождения','date'],['gender','Пол','text'],['startDate','Работает с','date'],['address','Адрес проживания','text'],['city','Город','text'],['postcode','Почтовый индекс','text'],['internalNumber','Внутренний номер','text'],['taxNumber','Регистрационный код','text'],['color','Цвет в графике','color']];
@@ -995,6 +1442,8 @@
         const advanceTotal = payroll.advancesAndPaid;
         const due = payroll.due;
         content = `<div class="metric-grid" style="grid-template-columns:repeat(4,minmax(0,1fr))"><article class="metric" style="--metric-color:#bd9455"><div class="metric-label">Фиксированная часть</div><div class="metric-value">${cashMoney(Number(profile.fixedSalary || 0))}</div></article><article class="metric" style="--metric-color:#71917a"><div class="metric-label">Процент от визитов</div><div class="metric-value">${cashMoney(commissionAmount)}</div></article><article class="metric" style="--metric-color:#8aaab0"><div class="metric-label">Авансы</div><div class="metric-value">${cashMoney(advanceTotal)}</div></article><article class="metric" style="--metric-color:#cb7867"><div class="metric-label">К выплате</div><div class="metric-value">${cashMoney(due)}</div></article></div><section class="panel simple-panel"><h2 class="panel-title">Расчёт выплат сотруднику</h2><div class="employee-profile-edit"><label>Фиксированная часть, €<input data-profile-key="fixedSalary" type="number" min="0" step="0.01" value="${escapeHtml(profile.fixedSalary)}"></label><label>Процент от услуг, %<input data-profile-key="commission" type="number" min="0" max="100" value="${escapeHtml(profile.commission)}"></label><label>Авансовая система<select data-profile-key="advanceEnabled"><option value="Нет" ${profile.advanceEnabled === 'Нет' ? 'selected' : ''}>Нет</option><option value="Да" ${profile.advanceEnabled !== 'Нет' ? 'selected' : ''}>Да</option></select></label><button class="btn btn-primary" data-action="save-employee-profile">Сохранить настройки</button></div><h3 class="client-section-title">Добавить начисление</h3><div class="employee-profile-edit"><label>Тип<select id="salary-entry-kind"><option value="advance">Аванс</option><option value="bonus">Премия</option><option value="penalty">Штраф</option></select></label><label>Сумма, €<input id="salary-entry-amount" type="number" min="0.01" step="0.01"></label><label>Основание<input id="salary-entry-note" type="text" placeholder="Комментарий"></label><button class="btn btn-small" data-action="add-salary-entry">Добавить начисление</button></div><h3 class="client-section-title">Начисления и удержания</h3>${ledger.map((entry) => `<div class="employee-profile-row"><span>${escapeHtml(entry.date)} · ${escapeHtml(entry.note || '')}</span><strong>${entry.kind === 'penalty' || entry.kind === 'advance' ? '−' : '+'}${cashMoney(entry.amount)}</strong></div>`).join('') || '<div class="empty-state">Начислений за выбранный период нет</div>'}</section>`;
+        content = renderEmployeeSalary(profile, payroll);
+        content = renderEmployeeSalary(profile, payroll).replace('<section class="panel simple-panel"><h2 class="panel-title">Основания начислений</h2>', `${renderEmployeeSalaryOverrides(profile)}<section class="panel simple-panel"><h2 class="panel-title">Основания начислений</h2>`);
       } else if (employeeProfileTab === 'reviews') {
         const reviews = profile.reviews || [];
         const average = reviews.filter((review) => review.kind === 'review' && review.rating).reduce((sum, review, _, items) => sum + Number(review.rating) / items.length, 0);
@@ -1006,7 +1455,6 @@
       } else {
         content = `<section class="panel simple-panel"><h2 class="panel-title">Доступное время для онлайн-записи</h2><div class="employee-profile-edit"><label>Начало записи<input data-profile-key="onlineStart" type="time" value="${escapeHtml(profile.onlineStart)}"></label><label>Окончание записи<input data-profile-key="onlineEnd" type="time" value="${escapeHtml(profile.onlineEnd)}"></label><label>Показывать клиентам<select data-profile-key="showOnline"><option value="Да" ${profile.showOnline !== false ? 'selected' : ''}>Да</option><option value="Нет" ${profile.showOnline === false ? 'selected' : ''}>Нет</option></select></label><button class="btn btn-primary" data-action="save-employee-profile">Сохранить время</button></div></section>`;
       }
-      const profileActions = `<button class="btn" data-action="back-to-schedule">← К расписанию</button>${employeeProfileTab === 'salary' ? '<button class="btn btn-gold" data-action="pay-employee-salary">Выплатить расчёт</button>' : ''}<button class="btn" data-action="employee-send-access">Отправить доступ</button><button class="btn btn-primary" data-action="edit-employee-profile">Изменить данные</button>`;
       return heading('СОТРУДНИКИ', person.name, profile.role, profileActions) + `<nav class="employee-profile-tabs" aria-label="Разделы профиля сотрудника">${tabs.map(([id, label]) => `<button data-employee-tab="${id}" class="${employeeProfileTab === id ? 'active' : ''}">${label}</button>`).join('')}</nav>${content}`;
     }
 
@@ -1048,9 +1496,12 @@
       return rows.filter((values) => get(values, 'name').trim()).map((values) => [escapeHtml(get(values, 'name')), escapeHtml(get(values, 'category', 'Без категории')), Number(String(get(values, 'quantity', '0')).replace(',', '.')) || 0, escapeHtml(get(values, 'unit', 'шт.')), Number(String(get(values, 'minimum', '0')).replace(',', '.')) || 0, Number(String(get(values, 'price', '0')).replace(',', '.')) || 0, escapeHtml(get(values, 'note'))]);
     }
 
-    function renderInventory() {
+    function getInventoryItems() {
       const demoItems = [['Сыворотка с витамином C', 'Косметология', 4, 'шт.', 8, 42, 'Профессиональная косметика'], ['Гель для ламинирования', 'Брови', 2, 'шт.', 5, 28, 'Thuya'], ['Масло для массажа', 'Массаж и SPA', 6, 'шт.', 3, 19, 'Ароматерапия'], ['Перчатки нитриловые', 'Расходники', 1, 'уп.', 4, 12, 'Размер M · чёрные'], ['SPF-крем 50+', 'Косметология', 9, 'шт.', 4, 31, 'Продажа клиентам'], ['Одноразовые простыни', 'Расходники', 12, 'уп.', 5, 14, '80 × 200 см']];
-      const items = [...demoItems, ...importedStock];
+      return [...demoItems, ...importedStock];
+    }
+    function renderInventory() {
+      const items = getInventoryItems();
       return heading('УЧЁТ МАТЕРИАЛОВ', 'Склад', 'Остатки, закупки и расход материалов', '<button class="btn" data-action="inventory-report">↓ Экспорт</button><button class="btn btn-primary" data-action="add-stock">＋ Приход товара</button>') + `<section class="metric-grid"><article class="metric" style="--metric-color:#71917a"><div class="metric-label">Позиций на складе</div><div class="metric-value">${items.length}</div><div class="metric-note">В 4 категориях</div></article><article class="metric" style="--metric-color:#bd9455"><div class="metric-label">Стоимость остатков</div><div class="metric-value">€ 1 284</div><div class="metric-note">По закупочным ценам</div></article><article class="metric" style="--metric-color:#cb7867"><div class="metric-label">Ниже минимума</div><div class="metric-value">2</div><div class="metric-note">Пора пополнить запас</div></article><article class="metric" style="--metric-color:#8aaab0"><div class="metric-label">Расход за месяц</div><div class="metric-value">€ 438</div><div class="metric-note">На 8% меньше сентября</div></article></section><section class="panel data-panel"><div class="panel-toolbar table-panel-toolbar"><div class="panel-title">Остатки на складе</div>${searchBox('Название или категория')}</div><div class="table-wrap"><table><thead><tr><th>Наименование</th><th>Категория</th><th>Остаток</th><th>Мин. остаток</th><th>Цена за ед.</th><th>Статус</th><th></th></tr></thead><tbody>${items.map((item, index) => `<tr><td><strong>${item[0]}</strong><div class="cell-sub">${item[6]}</div></td><td>${item[1]}</td><td><strong>${item[2]} ${item[3]}</strong></td><td>${item[4]} ${item[3]}</td><td>${money(item[5])}</td><td><span class="status ${item[2] <= item[4] ? 'waiting' : 'active'}">${item[2] <= item[4] ? 'Заказать' : 'В наличии'}</span></td><td><button class="btn btn-small" data-stock="${index}">Списать 1</button></td></tr>`).join('')}</tbody></table></div><div class="table-footer"><span>Показаны демонстрационные остатки</span><span>Списание материалов&nbsp; →</span></div></section>`;
     }
 
@@ -1214,6 +1665,27 @@
       select.innerHTML = categories.map((category) => `<option value="${escapeHtml(category)}">${escapeHtml(category)}</option>`).join('');
       if (selected && categories.includes(selected)) select.value = selected;
     }
+    function updateCashSalesFields() {
+      const kind = document.getElementById('cash-kind').value;
+      const isSalary = kind === 'salary';
+      const employeeField = document.getElementById('cash-employee-field');
+      const employeeSelect = document.getElementById('cash-employee');
+      if (employeeField) {
+        employeeField.hidden = kind !== 'income' && !isSalary;
+        employeeSelect.required = isSalary;
+        employeeField.querySelector('label').textContent = isSalary ? 'Сотрудник' : 'Ответственный сотрудник · необязательно';
+      }
+      const category = document.getElementById('cash-purpose').value;
+      const costField = document.getElementById('cash-cost-field');
+      const isGoodsSale = kind === 'income' && employeeSalesSource({ category }) === 'goods';
+      if (costField) costField.hidden = !isGoodsSale;
+      const productField = document.getElementById('cash-product-field');
+      if (productField) {
+        productField.hidden = !isGoodsSale;
+        const select = document.getElementById('cash-product-select');
+        select.innerHTML = `<option value="">Выберите товар или введите название вручную</option>${getInventoryItems().map((item, index) => `<option value="${index}">${item[0]} · ${escapeHtml(item[1])}</option>`).join('')}`;
+      }
+    }
     function configureCashModal(kind) {
       const form = document.getElementById('cash-form');
       form.reset();
@@ -1229,15 +1701,31 @@
         employeeField = document.createElement('div');
         employeeField.className = 'field full';
         employeeField.id = 'cash-employee-field';
-        employeeField.innerHTML = '<label for="cash-employee">Сотрудник</label><select id="cash-employee" name="employee"></select>';
+        employeeField.innerHTML = '<label for="cash-employee">Ответственный сотрудник</label><select id="cash-employee" name="employee"></select>';
         document.getElementById('cash-purpose').closest('.field').before(employeeField);
       }
-      employeeField.hidden = !isSalary;
+      let productField = document.getElementById('cash-product-field');
+      if (!productField) {
+        productField = document.createElement('div');
+        productField.className = 'field full';
+        productField.id = 'cash-product-field';
+        productField.innerHTML = '<label for="cash-product-select">Товар со склада</label><select id="cash-product-select"></select>';
+        document.getElementById('cash-title').closest('.field').before(productField);
+      }
       const employeeSelect = document.getElementById('cash-employee');
-      employeeSelect.required = isSalary;
-      employeeSelect.innerHTML = staff.map((person, index) => `<option value="${index}">${escapeHtml(person.name)} · ${escapeHtml(person.role)}</option>`).join('');
+      employeeSelect.innerHTML = `${isSalary ? '' : '<option value="">Без сотрудника</option>'}${staff.map((person, index) => `<option value="${index}">${escapeHtml(person.name)} · ${escapeHtml(person.role)}</option>`).join('')}`;
+      employeeSelect.value = isSalary ? '0' : '';
+      let costField = document.getElementById('cash-cost-field');
+      if (!costField) {
+        costField = document.createElement('div');
+        costField.className = 'field';
+        costField.id = 'cash-cost-field';
+        costField.innerHTML = '<label for="cash-cost">Себестоимость, €</label><input id="cash-cost" name="cost" type="number" min="0" step="0.01">';
+        document.getElementById('cash-amount').closest('.field').after(costField);
+      }
       document.getElementById('cash-client').closest('.field').hidden = isSalary;
       populateCashCategories(isSalary ? 'Зарплата' : '');
+      updateCashSalesFields();
       document.getElementById('cash-title').value = '';
       document.getElementById('cash-modal').classList.add('open');
       document.getElementById(isSalary ? 'cash-employee' : 'cash-purpose').focus();
@@ -1282,14 +1770,16 @@
       const kind = String(data.get('kind'));
       const category = String(data.get('category') || (kind === 'income' ? 'Оплата услуги' : 'Прочие расходы'));
       const details = String(data.get('title') || '').trim();
-      const employeeIndex = kind === 'salary' ? Number(data.get('employee')) : null;
+      const employeeValue = String(data.get('employee') || '');
+      const employeeIndex = kind === 'salary' || (kind === 'income' && employeeValue !== '') ? Number(employeeValue) : null;
       const staffName = employeeIndex === null ? '' : staff[employeeIndex]?.name || '';
       const amount = Number(data.get('amount'));
-      const cashEntry = { id: Date.now(), date: dateToISO(currentDate), kind, category, title: details ? `${category} · ${details}` : category, amount, method: String(data.get('method')), client: String(data.get('client') || '').trim(), staffName, note: String(data.get('note') || '').trim() };
+      const commissionSource = kind === 'income' ? employeeSalesSource({ category }) : '';
+      const cashEntry = { id: Date.now(), date: dateToISO(currentDate), payrollMonth: kind === 'salary' ? dateToISO(currentDate).slice(0, 7) : '', kind, category, commissionSource, staff: employeeIndex, staffName, itemName: details, title: details ? `${category} · ${details}` : category, amount, cost: Number(data.get('cost') || 0), method: String(data.get('method')), client: String(data.get('client') || '').trim(), note: String(data.get('note') || '').trim() };
       cashEntries.unshift(cashEntry);
       localStorage.setItem('neoBeautyCash', JSON.stringify(cashEntries));
       if (kind === 'salary' && employeeIndex !== null) {
-        employeeSalaryEntries.unshift({ id: cashEntry.id, staff: employeeIndex, date: cashEntry.date, kind: category === 'Выплата аванса' ? 'advance' : 'paid', amount, note: category });
+        employeeSalaryEntries.unshift({ id: cashEntry.id, cashEntryId: cashEntry.id, staff: employeeIndex, date: cashEntry.date, period: dateToISO(currentDate).slice(0, 7), kind: category === 'Выплата аванса' ? 'advance' : 'paid', amount, note: category });
         localStorage.setItem('neoBeautySalaryEntries', JSON.stringify(employeeSalaryEntries));
       }
       closeCashModal(); form.reset(); render(); showToast('Операция добавлена в кассу');
@@ -1384,6 +1874,46 @@
       closeEmployeePopover();
       showToast(`${staff[index].name}: приход отмечен`);
     }
+    function openEmployeeContactModal() {
+      document.getElementById('employee-contact-form').reset();
+      document.getElementById('employee-contact-modal').classList.add('open');
+      document.getElementById('employee-contact-value').focus();
+    }
+    function openEmployeeDocumentModal() {
+      document.getElementById('employee-document-form').reset();
+      if (!document.getElementById('employee-document-file')) {
+        const field = document.createElement('div');
+        field.className = 'field full';
+        field.innerHTML = '<label for="employee-document-file">Файл (необязательно)</label><input id="employee-document-file" type="file" accept=".pdf,.png,.jpg,.jpeg">';
+        document.getElementById('employee-document-note').closest('.field').before(field);
+      }
+      document.getElementById('employee-document-modal').classList.add('open');
+      document.getElementById('employee-document-name').focus();
+    }
+    function persistEmployeeProfile() { localStorage.setItem('neoBeautyEmployeeProfiles', JSON.stringify(employeeProfiles)); }
+    function saveEmployeeContact(form) {
+      const profile = getEmployeeProfile(selectedEmployeeIndex);
+      const type = document.getElementById('employee-contact-type').value;
+      const value = document.getElementById('employee-contact-value').value.trim();
+      if (!value) return;
+      const primary = document.getElementById('employee-contact-primary').checked;
+      if (primary) profile.contacts.forEach((contact) => { contact.primary = false; });
+      profile.contacts.push({ type, value, primary });
+      if (primary && type === 'Мобильный телефон') { profile.phone = value; staff[selectedEmployeeIndex].phone = value; localStorage.setItem('neoBeautyStaff', JSON.stringify(staff.slice(5))); }
+      persistEmployeeProfile();
+      document.getElementById('employee-contact-modal').classList.remove('open');
+      form.reset(); render(); showToast('Контакт сотрудника сохранён');
+    }
+    function saveEmployeeDocument(form) {
+      const profile = getEmployeeProfile(selectedEmployeeIndex);
+      const name = document.getElementById('employee-document-name').value.trim();
+      if (!name) return;
+      const file = document.getElementById('employee-document-file')?.files?.[0];
+      profile.documents.push({ name, kind: document.getElementById('employee-document-kind').value, date: document.getElementById('employee-document-date').value, note: document.getElementById('employee-document-note').value.trim(), fileName: file?.name || '' });
+      persistEmployeeProfile();
+      document.getElementById('employee-document-modal').classList.remove('open');
+      form.reset(); render(); showToast('Документ добавлен в карточку сотрудника');
+    }
     const changeMonth = (amount) => { const day = currentDate.getDate(); currentDate.setDate(1); currentDate.setMonth(currentDate.getMonth() + amount); currentDate.setDate(Math.min(day, new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 0).getDate())); render(); };
     document.addEventListener('click', async (event) => {
       const profileArrow = event.target.closest('[data-employee-profile]');
@@ -1392,6 +1922,16 @@
       if (employeeTab) { employeeProfileTab = employeeTab.dataset.employeeTab; employeeProfileEditMode = false; render(); return; }
       const employeePeriod = event.target.closest('[data-employee-period]');
       if (employeePeriod) { employeeProfilePeriod = employeePeriod.dataset.employeePeriod; render(); return; }
+      const openSalaryWizardStep = event.target.closest('[data-open-salary-wizard-step]');
+      if (openSalaryWizardStep) { openEmployeeSalaryWizard(openSalaryWizardStep.dataset.openSalaryWizardStep); return; }
+      const salaryWizardStep = event.target.closest('[data-salary-wizard-step]');
+      if (salaryWizardStep) { captureEmployeeSalaryWizardStep(); employeeSalaryWizardStep = Number(salaryWizardStep.dataset.salaryWizardStep); renderEmployeeSalaryWizardStep(); return; }
+      const chartToggle = event.target.closest('[data-employee-chart-toggle]');
+      if (chartToggle) { employeeChartLines[chartToggle.dataset.employeeChartToggle] = chartToggle.checked; drawEmployeeActivityChart(); return; }
+      const removeContact = event.target.closest('[data-remove-employee-contact]');
+      if (removeContact) { const profile = getEmployeeProfile(selectedEmployeeIndex); const [contact] = profile.contacts.splice(Number(removeContact.dataset.removeEmployeeContact), 1); if (contact?.type === 'Мобильный телефон' && profile.phone === contact.value) { profile.phone = ''; staff[selectedEmployeeIndex].phone = ''; localStorage.setItem('neoBeautyStaff', JSON.stringify(staff.slice(5))); } persistEmployeeProfile(); render(); showToast('Контакт удалён'); return; }
+      const removeDocument = event.target.closest('[data-remove-employee-document]');
+      if (removeDocument) { getEmployeeProfile(selectedEmployeeIndex).documents.splice(Number(removeDocument.dataset.removeEmployeeDocument), 1); persistEmployeeProfile(); render(); showToast('Документ удалён'); return; }
       const employeeName = event.target.closest('[data-employee-trigger]');
       if (employeeName) { openEmployeePopover(employeeName.dataset.employeeTrigger, employeeName); return; }
       const employeeAction = event.target.closest('[data-employee-action]');
@@ -1503,7 +2043,75 @@
       if (!actionButton) return;
       const action = actionButton.dataset.action;
       if (action === 'edit-employee-profile') { employeeProfileEditMode = true; render(); return; }
+      if (action === 'print-employee-salary') { window.print(); return; }
       if (action === 'employee-send-access') { const profile = getEmployeeProfile(selectedEmployeeIndex); showToast(profile.email || profile.phone ? 'Приглашение подготовлено. Для отправки подключите email или SMS-сервис.' : 'Сначала укажите телефон или email сотрудника.'); return; }
+      if (action === 'manage-salary-templates') { openEmployeeSalaryTemplates(); return; }
+      if (action === 'salary-wizard-prev' || action === 'salary-wizard-next') {
+        captureEmployeeSalaryWizardStep();
+        employeeSalaryWizardStep += action === 'salary-wizard-next' ? 1 : -1;
+        renderEmployeeSalaryWizardStep(); return;
+      }
+      if (action === 'save-salary-wizard') {
+        captureEmployeeSalaryWizardStep();
+        applyEmployeeSalaryConfiguration(getEmployeeProfile(selectedEmployeeIndex), employeeSalaryWizardDraft);
+        persistEmployeeProfile(); document.getElementById('employee-salary-wizard').classList.remove('open'); render(); showToast('Настройки зарплаты сохранены'); return;
+      }
+      if (action === 'save-salary-wizard-template') {
+        const name = document.getElementById('salary-wizard-template-name').value.trim();
+        if (!name) { showToast('Укажите название шаблона'); return; }
+        employeeSalaryTemplates.unshift({ id: String(Date.now()), name, ...JSON.parse(JSON.stringify(employeeSalaryWizardDraft)) });
+        localStorage.setItem('neoBeautySalaryTemplates', JSON.stringify(employeeSalaryTemplates)); renderEmployeeSalaryWizardStep(); showToast('Шаблон зарплаты сохранён'); return;
+      }
+      if (action === 'apply-salary-wizard-template') {
+        const template = employeeSalaryTemplates.find((item) => item.id === document.getElementById('salary-wizard-template-select').value);
+        if (!template) { showToast('Выберите шаблон зарплаты'); return; }
+        employeeSalaryWizardDraft = JSON.parse(JSON.stringify(template)); renderEmployeeSalaryWizardStep(); showToast('Шаблон загружен в настройку'); return;
+      }
+      if (action === 'save-salary-rules') {
+        const profile = getEmployeeProfile(selectedEmployeeIndex);
+        applyEmployeeSalaryConfiguration(profile, collectEmployeeSalaryConfiguration());
+        persistEmployeeProfile(); render(); showToast('Схема начисления сотрудника сохранена'); return;
+      }
+      if (action === 'save-salary-template') {
+        const name = document.getElementById('salary-template-name').value.trim();
+        if (!name) { showToast('Укажите название шаблона'); return; }
+        employeeSalaryTemplates.unshift({ id: String(Date.now()), name, ...collectEmployeeSalaryConfiguration() });
+        localStorage.setItem('neoBeautySalaryTemplates', JSON.stringify(employeeSalaryTemplates));
+        openEmployeeSalaryTemplates(); showToast('Шаблон зарплаты сохранён'); return;
+      }
+      if (action === 'apply-salary-template') {
+        const template = employeeSalaryTemplates.find((item) => item.id === document.getElementById('salary-template-select').value);
+        if (!template) { showToast('Выберите шаблон зарплаты'); return; }
+        applyEmployeeSalaryConfiguration(getEmployeeProfile(selectedEmployeeIndex), template);
+        persistEmployeeProfile(); document.getElementById('employee-salary-templates').classList.remove('open'); render(); showToast('Шаблон применён к сотруднику'); return;
+      }
+      if (action === 'add-salary-override') {
+        const source = document.getElementById('salary-override-source').value;
+        const itemName = document.getElementById('salary-override-name').value.trim();
+        const rate = Number(document.getElementById('salary-override-rate').value);
+        if (!itemName || !Number.isFinite(rate) || rate < 0) { showToast('Укажите название позиции и ставку'); return; }
+        const profile = getEmployeeProfile(selectedEmployeeIndex);
+        profile.salaryOverrides ||= [];
+        const existing = profile.salaryOverrides.find((item) => item.source === source && item.itemName.toLocaleLowerCase('ru') === itemName.toLocaleLowerCase('ru'));
+        const override = { id: existing?.id || Date.now(), source, itemName, mode: document.getElementById('salary-override-mode').value, rate, basis: document.getElementById('salary-override-basis').value };
+        if (existing) Object.assign(existing, override); else profile.salaryOverrides.push(override);
+        persistEmployeeProfile(); render(); showToast('Индивидуальная ставка сохранена'); return;
+      }
+      if (action === 'remove-salary-override') {
+        const profile = getEmployeeProfile(selectedEmployeeIndex);
+        profile.salaryOverrides = (profile.salaryOverrides || []).filter((item) => String(item.id) !== actionButton.dataset.salaryOverrideId);
+        persistEmployeeProfile(); render(); showToast('Индивидуальная ставка удалена'); return;
+      }
+      if (action === 'add-employee-contact') { openEmployeeContactModal(); return; }
+      if (action === 'add-employee-document') { openEmployeeDocumentModal(); return; }
+      if (action === 'save-employee-overview') {
+        const profile = getEmployeeProfile(selectedEmployeeIndex);
+        document.querySelectorAll('[data-overview-key]').forEach((input) => { profile[input.dataset.overviewKey] = input.type === 'checkbox' ? input.checked : input.value; });
+        if (profile.phone && !profile.contacts.some((contact) => contact.type === 'Мобильный телефон' && contact.value === profile.phone)) profile.contacts.unshift({ type: 'Мобильный телефон', value: profile.phone, primary: true });
+        localStorage.setItem('neoBeautyEmployeeProfiles', JSON.stringify(employeeProfiles));
+        localStorage.setItem('neoBeautyStaff', JSON.stringify(staff.slice(5)));
+        employeeProfileEditMode = false; render(); showToast('Основные сведения сохранены'); return;
+      }
       if (action === 'back-to-schedule') { selectedStaffFilter = String(selectedEmployeeIndex); setView('schedule'); return; }
       if (action === 'save-employee-profile') {
         const profile = getEmployeeProfile(selectedEmployeeIndex);
@@ -1528,17 +2136,26 @@
       if (action === 'add-salary-entry') {
         const amount = Number(document.getElementById('salary-entry-amount').value);
         if (!amount || amount <= 0) { showToast('Укажите сумму начисления'); return; }
-        employeeSalaryEntries.unshift({ id: Date.now(), staff: selectedEmployeeIndex, date: dateToISO(currentDate), kind: document.getElementById('salary-entry-kind').value, amount, note: document.getElementById('salary-entry-note').value.trim() });
+        employeeSalaryEntries.unshift({ id: Date.now(), staff: selectedEmployeeIndex, date: dateToISO(currentDate), period: employeeSalaryMonth, kind: document.getElementById('salary-entry-kind').value, amount, note: document.getElementById('salary-entry-note').value.trim() });
         localStorage.setItem('neoBeautySalaryEntries', JSON.stringify(employeeSalaryEntries));
         render(); showToast('Начисление добавлено в расчёт зарплаты'); return;
+      }
+      if (action === 'remove-salary-entry') {
+        const entryId = Number(actionButton.dataset.salaryEntryId);
+        const entry = employeeSalaryEntries.find((item) => Number(item.id) === entryId && Number(item.staff) === selectedEmployeeIndex);
+        if (!entry) return;
+        employeeSalaryEntries = employeeSalaryEntries.filter((item) => Number(item.id) !== entryId);
+        if (entry.cashEntryId) { cashEntries = cashEntries.filter((item) => Number(item.id) !== Number(entry.cashEntryId)); localStorage.setItem('neoBeautyCash', JSON.stringify(cashEntries)); }
+        localStorage.setItem('neoBeautySalaryEntries', JSON.stringify(employeeSalaryEntries));
+        render(); showToast('Начисление удалено'); return;
       }
       if (action === 'pay-employee-salary') {
         const payroll = calculateEmployeePayroll(selectedEmployeeIndex);
         if (payroll.due <= 0) { showToast('Нет суммы к выплате'); return; }
         const staffName = staff[selectedEmployeeIndex].name;
-        const payout = { id: Date.now(), date: dateToISO(currentDate), kind: 'paid', amount: payroll.due, staff: selectedEmployeeIndex, note: 'Выплата зарплаты' };
+        const payout = { id: Date.now(), cashEntryId: Date.now() + 1, date: dateToISO(currentDate), period: payroll.month, kind: 'paid', amount: payroll.due, staff: selectedEmployeeIndex, note: 'Выплата зарплаты' };
         employeeSalaryEntries.unshift(payout);
-        cashEntries.unshift({ id: Date.now() + 1, date: dateToISO(currentDate), kind: 'salary', category: 'Зарплата', title: `Зарплата · ${staffName}`, amount: payroll.due, method: 'cash', client: '', staffName: 'Елена Кузнецова', note: 'Из профиля сотрудника' });
+        cashEntries.unshift({ id: payout.cashEntryId, date: dateToISO(currentDate), payrollMonth: payroll.month, kind: 'salary', category: 'Зарплата', title: `Зарплата · ${staffName}`, amount: payroll.due, method: 'cash', client: '', staffName: 'Елена Кузнецова', note: 'Из профиля сотрудника' });
         localStorage.setItem('neoBeautySalaryEntries', JSON.stringify(employeeSalaryEntries));
         localStorage.setItem('neoBeautyCash', JSON.stringify(cashEntries));
         render(); showToast(`Выплата ${cashMoney(payroll.due)} добавлена в кассу`); return;
@@ -1635,7 +2252,18 @@
       if (messages[action]) showToast(messages[action]);
     });
     document.addEventListener('change', (event) => {
-      if (event.target.id === 'cash-kind') { populateCashCategories(event.target.value === 'salary' ? 'Зарплата' : ''); return; }
+      if (event.target.id === 'salary-period-month') { if (event.target.value) { employeeSalaryMonth = event.target.value; render(); } return; }
+      if (event.target.id === 'cash-kind') { populateCashCategories(event.target.value === 'salary' ? 'Зарплата' : ''); updateCashSalesFields(); return; }
+      if (event.target.id === 'cash-purpose') { updateCashSalesFields(); return; }
+      if (event.target.id === 'cash-product-select') {
+        const item = getInventoryItems()[Number(event.target.value)];
+        if (item) {
+          const decodedName = document.createElement('textarea'); decodedName.innerHTML = item[0];
+          document.getElementById('cash-title').value = decodedName.value;
+          document.getElementById('cash-cost').value = item[5] || 0;
+        }
+        return;
+      }
       const settingKey = event.target.dataset.settingKey;
       if (settingKey) {
         appSettings[settingKey] = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -1658,6 +2286,8 @@
     document.getElementById('client-form').addEventListener('submit', (event) => { event.preventDefault(); addClient(event.currentTarget); });
     document.getElementById('staff-form').addEventListener('submit', (event) => { event.preventDefault(); addStaff(event.currentTarget); });
     document.getElementById('supplier-form').addEventListener('submit', (event) => { event.preventDefault(); addSupplier(event.currentTarget); });
+    document.getElementById('employee-contact-form').addEventListener('submit', (event) => { event.preventDefault(); saveEmployeeContact(event.currentTarget); });
+    document.getElementById('employee-document-form').addEventListener('submit', (event) => { event.preventDefault(); saveEmployeeDocument(event.currentTarget); });
     document.getElementById('stock-import').addEventListener('change', async (event) => {
       const file = event.target.files?.[0];
       if (!file) return;
@@ -1679,10 +2309,13 @@
     document.getElementById('client-modal').addEventListener('click', (event) => { if (event.target.id === 'client-modal' || event.target.closest('[data-close-client]')) document.getElementById('client-modal').classList.remove('open'); });
     document.getElementById('staff-modal').addEventListener('click', (event) => { if (event.target.id === 'staff-modal' || event.target.closest('[data-close-staff]')) document.getElementById('staff-modal').classList.remove('open'); });
     document.getElementById('supplier-modal').addEventListener('click', (event) => { if (event.target.id === 'supplier-modal' || event.target.closest('[data-close-supplier]')) document.getElementById('supplier-modal').classList.remove('open'); });
+    document.getElementById('employee-contact-modal').addEventListener('click', (event) => { if (event.target.id === 'employee-contact-modal' || event.target.closest('[data-close-employee-contact]')) event.currentTarget.classList.remove('open'); });
+    document.getElementById('employee-document-modal').addEventListener('click', (event) => { if (event.target.id === 'employee-document-modal' || event.target.closest('[data-close-employee-document]')) event.currentTarget.classList.remove('open'); });
     document.getElementById('appointment-detail-modal').addEventListener('click', (event) => { if (event.target.id === 'appointment-detail-modal') event.currentTarget.classList.remove('open'); });
     document.addEventListener('input', (event) => { if (event.target.id !== 'cash-search') return; cashSearch = event.target.value; const cursor = event.target.selectionStart; render(); const next = document.getElementById('cash-search'); next.focus(); next.setSelectionRange(cursor, cursor); });
     document.addEventListener('input', (event) => { if (event.target.matches('[data-indirect-calc]')) updateCashCalculation(); });
-    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeModal(); closeCashModal(); document.getElementById('cash-categories-modal').classList.remove('open'); document.getElementById('client-modal').classList.remove('open'); document.getElementById('staff-modal').classList.remove('open'); document.getElementById('supplier-modal').classList.remove('open'); document.getElementById('appointment-detail-modal').classList.remove('open'); document.getElementById('top-alert-panel').classList.remove('open'); closeSidebarFlyout(); activeSidebarMenu = ''; } });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { closeModal(); closeCashModal(); document.getElementById('cash-categories-modal').classList.remove('open'); document.getElementById('client-modal').classList.remove('open'); document.getElementById('staff-modal').classList.remove('open'); document.getElementById('supplier-modal').classList.remove('open'); document.getElementById('employee-contact-modal').classList.remove('open'); document.getElementById('employee-document-modal').classList.remove('open'); document.getElementById('appointment-detail-modal').classList.remove('open'); document.getElementById('top-alert-panel').classList.remove('open'); closeSidebarFlyout(); closeEmployeePopover(); activeSidebarMenu = ''; } });
+    document.addEventListener('keydown', (event) => { if (event.key === 'Escape') { document.getElementById('employee-salary-templates')?.classList.remove('open'); document.getElementById('employee-salary-wizard')?.classList.remove('open'); } });
     setInterval(() => { const time = new Intl.DateTimeFormat('ru-RU', { timeZone: 'Europe/Tallinn', hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date()); const clock = document.getElementById('rail-clock-time'); const headerClock = document.getElementById('header-clock'); if (clock) clock.textContent = time; if (headerClock) headerClock.textContent = time; }, 30000);
     render();
   </script>
